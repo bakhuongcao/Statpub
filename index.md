@@ -2,30 +2,13 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Personal academic profile](./index.html)
-
-There should be whitespace between paragraphs.
-
-This document presents the academic curriculum vitae of **Ba Khuong Cao**, including education, research interests, publications, and professional experience.
-
 # Personal Information
-
-This is a normal paragraph following a header. The information below summarizes current affiliation and contact details.
 
 - **Full name**: Ba Khuong Cao  
 - **Affiliation**: Thai Nguyen University of Medicine and Pharmacy, Vietnam  
 - **Email**: caobakhuong@tnmc.edu.vn  
 
-![Profile photo](Khuong.png)
-
 ## Research Interests
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
 - Health Care Sciences & Services  
 - Tropical Medicine  
 - Epidemiology  
@@ -35,84 +18,70 @@ This is a normal paragraph following a header. The information below summarizes 
 
 ### Experience
 
-```text
-Lecturer – Researcher
-Department of Epidemiology, Faculty of Public Health
-Thai Nguyen University of Medicine and Pharmacy
-2015 – Present
-Teach epidemiology and research methodology to undergraduate medical students
+- Lecturer – Researcher, Department of Epidemiology, Faculty of Public Health, Thai Nguyen University of Medicine and Pharmacy 2015 – Present
+    - Teach epidemiology and research methodology to undergraduate medical students
 
-Supervise medical students conducting epidemiological studies
+    - Supervise medical students conducting epidemiological studies
 
-Conduct collaborative research within and beyond the university
+    - Conduct collaborative research within and beyond the university
 
-Participate in disease prevention campaigns (e.g., COVID-19 pandemic)
+    - Participate in disease prevention campaigns (e.g., COVID-19 pandemic)
 
-text
-Copy code
-Concurrent Staff
-Postgraduate Office
-Thai Nguyen University of Medicine and Pharmacy
-2020 – 2023
-Coordinate residency training programs (internal medicine, pediatrics, surgery)
+- Concurrent Staff, Postgraduate Office, Thai Nguyen University of Medicine and Pharmacy, 2020 – 2023
+    - Coordinate residency training programs (internal medicine, pediatrics, surgery)
 
-Liaise with departments and affiliated hospitals at provincial and national levels
+    - Liaise with departments and affiliated hospitals at provincial and national levels
+    - Verify data management and data analysis for theses
 
-Verify data management and data analysis for resident theses
+### Education
+- Ph.D. in Health Sciences, University of Groningen, 08/2023 – 08/2027
 
-Education
-Ph.D. in Health Sciences, University of Groningen, 08/2023 – 08/2027
+- M.Sc. in Tropical Medicine (Epidemiology), Mahidol University, 08/2017 – 08/2019
 
-M.Sc. in Tropical Medicine (Epidemiology), Mahidol University, 08/2017 – 08/2019
+- Medical Doctor in Preventive Medicine, Thai Nguyen University of Medicine and Pharmacy, 09/2009 – 08/2015
 
-Medical Doctor in Preventive Medicine, Thai Nguyen University of Medicine and Pharmacy, 09/2009 – 08/2015
-
-Associations
+### Associations
 ISPOR Groningen Chapter — Public Relation Officer
 https://www.linkedin.com/posts/ispor-groningen-chapter_isporgroningenchapter-healtheconomics-activity-7310213334362976257-pk4J/
 
-Publications
-Category	Description
-International	Peer-reviewed journal articles
-National	Peer-reviewed Vietnamese journals
+### Publications
 
-International Peer-Reviewed Publications
-Cao BK, Nguyen TPL, Postma MJ, van der Schans J.
+
+- **Cao BK**, Nguyen TPL, Postma MJ, van der Schans J.
 Acceptance and willingness to pay for pneumococcal vaccination in Vietnam.
 Vaccine. 2025;67:127884.
 https://pubmed.ncbi.nlm.nih.gov/41129882/
 
-Cao BK, Hanifa RS, Nguyen TP, Postma MJ, van der Schans J.
+- **Cao BK**, Hanifa RS, Nguyen TP, Postma MJ, van der Schans J.
 Economic evaluations of vaccines against respiratory infections in adults in Southeast Asia.
 Hum Vaccin Immunother. 2025;21(1):2528409.
 https://pubmed.ncbi.nlm.nih.gov/40665593/
 
-Cao Ba K, Kaewkungwal J, Pacheun O, Nguyen Thi To U, Lawpoolsri S.
+- **Cao Ba K**, Kaewkungwal J, Pacheun O, Nguyen Thi To U, Lawpoolsri S.
 Health Literacy Toward Zoonotic Diseases Among Livestock Farmers in Vietnam.
 Environ Health Insights. 2020.
 https://pmc.ncbi.nlm.nih.gov/articles/PMC7372606/
 
-National Peer-Reviewed Publications
-Nguyen LTP, Nguyen DT, Tran HT, Hoang NM, Hoa HTH, Cao KB, et al.
+- Nguyen LTP, Nguyen DT, Tran HT, Hoang NM, Hoa HTH, **Cao KB**, et al.
 Acceptance and willingness to pay for COVID-19 vaccines in Vietnam.
 MedPharmRes, 2022.
 
-Tran ATP, Cao KB, Van VH.
+- Tran ATP, **Cao KB**, Van VH.
 Antibiotic usage among the elderly in Thai Nguyen province.
 MedPharmRes, 2022.
 
-Bui TTH, Cao BK, Tran TM.
+- Bui TTH, **Cao BK**, Tran TM.
 Relationship between bilirubin and coronary artery disease.
 Vietnam Medical Journal, 2021.
 
-Conferences
+### Conferences
 14th European Congress on Tropical Medicine and International Health (2025)
 
-Presentations
+### Presentations
 Economic evaluations of vaccines against respiratory infections in adults in Southeast Asia
 14th European Congress on Tropical Medicine and International Health (2025)
 
-Tools
+### Tools
 R, RStudio, SPSS, Stata
 
 Git, VS Code
@@ -121,12 +90,10 @@ Atlas.ti, REDCap, Epidata
 
 MS Office, Photoshop, Illustrator
 
-Language Proficiency
+### Language Proficiency
 English: IELTS 7.0
 
 Dutch: Basic
 
 Vietnamese: Native
 
-References
-<dl> <dt>Assoc. Prof. Saranath Lawpoolsri</dt> <dd>Department of Tropical Hygiene, Faculty of Tropical Medicine, Mahidol University</dd> <dd>Email: saranath.law@mahidol.ac.th</dd> <dd>Relationship: Master’s supervisor</dd> <dt>Assoc. Prof. Nguyen Phuong Sinh</dt> <dd>Vice-Rector, Thai Nguyen University of Medicine and Pharmacy</dd> <dd>Email: sinhnp.y@gmail.com; nguyenphuongsinh@tump.edu.vn</dd> <dd>Relationship: Employer</dd> </dl>
