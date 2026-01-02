@@ -89,7 +89,7 @@ Postgraduate Office, Thai Nguyen University of Medicine and Pharmacy
 ## Tools
 
 - R, RStudio, SPSS, Stata  
-- Git, VS Code  
+- Github, VS Code  
 - Atlas.ti, REDCap, Epidata  
 - MS Office, Photoshop, Illustrator  
 
