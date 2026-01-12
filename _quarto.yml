@@ -1,20 +1,18 @@
 project: 
   type: website
+  output-dir: _sites
 
 website:
   sidebar:
-    style: "floating"
+    style: "docked"
     search: true
     contents:
-      - text: "Introduction"
-        href: Day_2.qmd
+      - text: "Ba Khuong Cao 's Portfolio"
+        href: index.html
       - section: "Basics"
         href: Descriptive statistics.html
-        contents:
-          - index.qmd
-          - basics-knitr.qmd
-          - basics-jupyter.qmd
-      - section: "Layout"
+      - section: "Other 2"
+        href: _site/Day 2.html
         contents:
           - layout.qmd
           - layout-knitr.qmd
