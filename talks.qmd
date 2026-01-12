@@ -1,0 +1,5 @@
+----
+Title: Statistics in practices
+----
+
+{{< lipsum 1 >}}

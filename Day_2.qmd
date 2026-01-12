@@ -1,0 +1,244 @@
+---
+title: "Hồi quy tuyến tính sử dụng R"
+author: "Ba Khuong Cao - caobakhuongytcc@gmail.com"
+format:
+  html:
+    toc: true
+    toc-depth: 3         
+execute:
+  eval: true
+  echo: true
+  warning: false
+  message: false
+---
+\newpage
+::: callout-important
+## Những giả định (`Assumptions`) của mô hình hồi quy tuyến tính(`Linear least squares regression model`).
+Mô hình hồi quy tuyến tính thường phải thỏa mãn **đồng thời** một số giả định (LINE), bao gồm:
+
+- **L**inear relationship: Có mối tương quan tuyến tính giữa biến độc lập và biến phụ thuộc
+
+- **I**ndependent of errors: Các quan sát độc lập với nhau. 
+
+- **N**ormal distribution of residuals: Phần dư (`residuals`) có phân phối `normal`
+
+- **E**quivalent of variance: Phương sai bằng nhau.
+:::
+
+
+::: callout-note
+## Các bước thực hiện
+
+1.  Loading packages, dataset
+2.  Khảo sát mối tương quan giữa biến phụ thuộc và biến độc lập
+3.  Xây dựng mô hình
+4.  Xem xét các giả định
+5. Làm gì khi giả định không được thỏa mãn
+:::
+
+# 1. Loading packages, dataset
+## Loading packages
+```{r}
+#| message: false
+#| warning: false
+# Check whether pacman is available and install if needed
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
+
+# Use pacman to install (if needed) and load the required packages
+pacman::p_load(ggplot2,patchwork)
+```
+
+## Loading dataset
+
+Chúng ta có thể load dataset này vào R để phân tích:
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+library(haven)
+epistat2024 <- read_sav("D:/PhD/Training/Epidemiology and Applied Statistics - start on Monday 18 november 2024/epistat2024.sav")
+```
+```{r}
+#| message: false
+#| warning: false
+names(epistat2024)
+```
+# 2. Khảo sát mối tương quan giữa biến phụ thuộc và biến độc lập
+## scatterplot of VC at visit 9 (VC9) and height at visit 9 (height9). 
+
+```{r}
+#| message: false
+#| warning: false
+library(ggplot2)
+
+ggplot(epistat2024, aes(x = height9, y = vc9, colour = height9)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "red", se = FALSE) + # regression line
+  labs(title = "Scatterplot of VC vs Height at Visit 9",
+       x = "Height at Visit 9",
+       y = "VC at Visit 9") +
+  theme_minimal()
+
+```
+
+# P-P plots
+```{r}
+# Sort data and compute CDFs
+vc9_sorted <- sort(epistat2024$vc9)
+df_pp <- data.frame(
+  empirical = ppoints(length(vc9_sorted)),
+  theoretical = pnorm(vc9_sorted, mean = mean(vc9_sorted, na.rm = TRUE),
+                      sd = sd(vc9_sorted, na.rm = TRUE))
+)
+
+ggplot(df_pp, aes(x = theoretical, y = empirical)) +
+  geom_point(shape = 1, size = 0.5) +  # hollow circle
+  geom_abline(intercept = 0, slope = 1, color = "red", linetype = "dashed") +
+  labs(title = "P-P Plot of VC9", x = "Theoretical", y = "Empirical") +
+  theme_minimal()
+
+
+```
+
+```{r}
+height9_sorted <- sort(epistat2024$height9)
+df_pp_height <- data.frame(
+  empirical = ppoints(length(height9_sorted)),
+  theoretical = pnorm(height9_sorted, mean = mean(height9_sorted, na.rm = TRUE),
+                      sd = sd(height9_sorted, na.rm = TRUE))
+)
+
+
+ggplot(df_pp_height, aes(x = theoretical, y = empirical)) +
+  geom_point(shape = 1, size = 0.5) +  # hollow circle
+  geom_abline(intercept = 0, slope = 1, color = "red", linetype = "dashed") +
+  labs(title = "P-P Plot of Height9", x = "Theoretical", y = "Empirical") +
+  theme_minimal()
+
+```
+:::{.callout-note}
+Based on the scatterplot the relation looks linear. The P-P plots of VC9 and HEIGHT9 indicate that both variables are normally distributed. So a Pearson correlation coefficient can be calculated.
+:::
+
+
+## Calculate the correct correlationcoefficient (Pearson or Spearman).
+```{r}
+# Perform Pearson correlation test
+cor_test <- cor.test(epistat2024$vc9, epistat2024$height9, method = "pearson")
+
+# Extract correlation coefficient
+r <- cor_test$estimate
+
+# % explained variance (R-squared)
+explained_variance <- r^2 * 100
+
+# Extract p-value
+p_value <- cor_test$p.value
+
+# Print results
+cat("Pearson correlation r =", round(r, 3), "\n")
+cat("Explained variance R² =", round(explained_variance, 2), "%\n")
+cat("p-value =", p_value, "\n")
+
+```
+```{r}
+#| message: false
+#| warning: false
+
+r <- cor(epistat2024$vc9, epistat2024$height9, use = "complete.obs")
+explained_variance <- r^2 * 100
+
+ggplot(epistat2024, aes(x = height9, y = vc9)) +
+  geom_point(shape = 1, size = 2) +           # hollow circles
+  geom_smooth(method = "lm", color = "red", se = FALSE) +  # regression line
+  labs(title = paste0("VC9 vs Height9 (R² = ", round(explained_variance, 2), "%)"),
+       x = "Height at Visit 9",
+       y = "VC at Visit 9") +
+  theme_minimal()
+
+```
+:::{.callout-note}
+The correlation coefficient is 0.787 which is ‘strong’. The p-value is 0.000 which is lower than 0.05 and significant. The % explained variance is 0.787^2 = 0.6198. So 61.98% of the variance in VC can be explained by height.
+:::
+
+# 3. Xây dựng mô hình hồi quy tuyến tính
+## Estimate the effect of height9 on VC9 with the help of a linear regression analysis
+```{r}
+# Linear regression: VC9 ~ height9
+model <- lm(vc9 ~ height9, data = epistat2024)
+residuals_model <- residuals(model)
+fitted_model <- fitted(model)
+summary(model)
+```
+
+```{r}
+# 95% confidence intervals
+confint(model, level = 0.95)
+
+```
+
+
+::: callout-note
+Magnitude of height on VC: This is actually the regression coefficient. So 8.279. For each cm higher height the VC is predicted to be 8.279 cl higher
+The effect has a p-value of 0.000 and is thus significantly different from 0. The 95% CI can be calculated by 8.279 ± 1.96 * 0.131. The 95% CI is 8.022 - 8.536
+
+:::
+# 4. Xem xét các giả định
+
+```{r}
+plot(model, which = 1)  # Residuals vs Fitted
+
+```
+```{r}
+plot(model, which = 2)  # Normal Q-Q plot
+
+```
+
+```{r}
+#|warning: false
+ggplot(data.frame(residuals = residuals_model), aes(x = residuals)) +
+  geom_histogram(aes(y = ..density..), binwidth = 1, fill = "lightblue", color = "black") +
+  stat_function(fun = dnorm, args = list(mean = mean(residuals_model), sd = sd(residuals_model)),
+                color = "red", size = 1) +
+  labs(title = "Histogram of Residuals with Normal Curve", x = "Residuals", y = "Density") +
+  theme_minimal()
+
+
+```
+```{r}
+p1 <- ggplot(data.frame(residuals = residuals_model), aes(x = residuals)) +
+  geom_histogram(aes(y = ..density..), binwidth = 1, fill = "lightblue", color = "black") +
+  stat_function(fun = dnorm, args = list(mean = mean(residuals_model), sd = sd(residuals_model)),
+                color = "red", size = 1) +
+  labs(title = "Histogram of Residuals", x = "Residuals", y = "Density") +
+  theme_minimal()
+
+p2 <- ggplot(data.frame(residuals = residuals_model), aes(sample = residuals)) +
+  stat_qq(shape = 1, color = "blue") +
+  stat_qq_line(color = "red") +
+  labs(title = "Q-Q Plot of Residuals") +
+  theme_minimal()
+
+p3 <- ggplot(data.frame(fitted = fitted_model, residuals = residuals_model), aes(x = fitted, y = residuals)) +
+  geom_point(shape = 1, color = "blue") +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  labs(title = "Residuals vs Fitted", x = "Fitted values", y = "Residuals") +
+  theme_minimal()
+
+combined_plot <- (p1 | p2) / p3
+combined_plot
+
+```
+
+# 5. Làm gì khi giả định không được thỏa mãn
+* Một giả định cần đặc biệt lưu ý đó là các quan sát không độc lập với nhau: 
+  - Ví dụ, trong đo lường lặp lại: Cân nặng của trẻ được đo lường nhiều lần trong một một năm đầu đời.Như vậy,các đo lường cân nặng của cùng một trẻ thường có mối tương quan nội tại với nhau.
+  
+  - Một ví dụ khác mà chúng ta thường không chú ý đến: chúng ta đo lường tại nhiều bệnh viện/địa điểm khác nhau. Khi đó, việc các kết quả quan sát/đo tại cùng một bệnh viện/địa điểm có mối tương quan nội tại với nhau.
+  
+  - Nghiên cứu chọn mẫu nhiều giai đoạn, lấy ngẫu nhiên một số xã ở một vài tỉnh, từ đó lấy ngẫu nhiên một vài thôn/bản ở xã, và chọn ngẫu nhiên/không ngẫu nhiên đối tượng nghiên cứu tại thôn/bản được chọn. Như vậy, dữ liệu thu được sẽ có nhiều cấp (multi levels) và các đo lường tại cùng một thôn/bản/tổ có thể có mối tương quan nội tại(ICC) với nhau (có thể lớn hoặc nhỏ hơn).
+
+Thực tế thì không có điểm cắt chính xác nào để nói ICC đó là "đủ nhỏ" để bỏ qua nó. Tuy nhiên một số statisticians nôm na nói về con số 0.1-0.2. Khi giả định các quan sát độc lập với nhau không được thỏa mãn thì một giải pháp đó là áp dụng multilevel analysis (mixed model). Quá trình thực hiện phương pháp phần tích này có phần phức tạp hơn và sẽ được trình bày trong một bài viết khác.
+  

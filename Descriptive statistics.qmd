@@ -1,0 +1,202 @@
+---
+title: "Phân tích mô tả sử dụng R"
+author: "Ba Khuong Cao - caobakhuongytcc@gmail.com"
+format:
+  html:
+    toc: true
+    toc-depth: 3         
+execute:
+  eval: true
+  echo: true
+  warning: false
+  message: false
+---
+
+::: callout-important
+## Ưu điểm
+
+-   **Hạn chế sai sót**, **tiết kiệm thời gian/công sức** bằng cách xuất trực tiếp bảng kết quả đưa vào bài báo/luận văn
+
+-   **Không điền thủ công**: Không cần phải phân tích cho từng biến số và chuyển kết quả vào bảng một cách thủ công.
+:::
+
+\newpage
+
+::: callout-note
+## Các bước thực hiện
+
+1.  Làm quen với dataset (Mô tả ngắn gọn)
+2.  Loading packages
+3.  Loading dataset
+4.  Thực hiện một số bước cần thiết để mã hóa dữ liệu
+5.  Phân tích kết quả và xuất ra file Word (.docX)
+:::
+
+# 1. Mô tả dataset
+
+Trong phần phân tích ngày hôm nay, chúng ta sẽ sử dụng bộ số liệu được public trên tạp chí ([Link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0197251)) về nhiễm HIV ở phụ nữ có hoạt động mại dâm.\newline \newline Các datasets liên quan đến bài báo này được công bố kèm theo bài báo này. Phần phân tích này sử dụng dataset có tên `data_file_Table_1.csv`. Phần mô tả cụ thể của dataset này như sau (Theo công bố trong bài báo):
+
+| Variable name (Tên biến) | Variable description (Mô tả) | Codes (Mã hóa) |
+|----------------|--------------------------|------------------------------|
+| unique | Subject identification number | Numeric |
+| q103 | Nationality | 1 = Benin, 2 = Ghana, 3 = Nigeria, 4 = Togo, 5 = Others |
+| age | Age in years | Numeric |
+| age_3cat | Age in years (categories) | 1 = 18–24; 2 = 25–34; 3 = ≥ 35 |
+| q105 | Education | 0 = Not educated; 1 = Primary; 2 = Secondary; 3 = Postsecondary, university |
+| q114 | Marital status | 1 = Married; 2 = Single; 3 = Divorced; 4 = Widowed |
+| q107 | Place of work | 1 = Brothel; 2 = Home; 3 = Bars; 4 = Hotels; 5 = Street; 6 = Nightclub; 7 = Others |
+| duree | Duration in sex work (months) | Numeric |
+| q205 | Number of clients (last 7 days of work) | Numeric |
+| q219 | Number of sexual intercourses (last 3 days) | Numeric |
+| constante | Consistent condom use with clients (last 7 days of work) | 1 = Yes; 2 = No |
+| q211 | Condom use with last client | 1 = Yes; 2 = No |
+| groupe | HIV/treatment status | 1 = HIV positive, treated; 2 = HIV positive, not treated; 3 = HIV negative |
+| anal | Ever had anal sex (any partner) | 1 = No; 2 = Yes |
+| hla9 | Ever had oral sex (any partner) | 1 = Yes; 2 = No |
+| gono | NG prevalence | 1 = Positive; 2 = Negative; 9 = No answer |
+| chlam | CT prevalence | 1 = Positive; 2 = Negative; 9 = No answer |
+| gonochlam | NG/CT prevalence | 1 = Positive; 2 = Negative; 9 = No answer |
+| cd4_nb | CD4 cell count/mm³ | Numeric |
+| charge_virale_copies | Viral load | Numeric |
+
+# 2. Loading packages
+
+Chúng ta sẽ sử dụng một vài packages: `gmodels`, `dplyr`, `psych`, `gtsummary`, `readxl`, `readr`, `finalfit`, `flextable`.
+
+```{r}
+#| message: false
+#| warning: false
+# Check whether pacman is available and install if needed
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
+
+# Use pacman to install (if needed) and load the required packages
+pacman::p_load(gmodels, dplyr, psych, gtsummary, readxl,readr,finalfit,flextable)
+```
+
+# 3. Loading dataset
+
+Chúng ta có thể load dataset này vào R để phân tích:
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+# Define a base folder path
+data_folder <- "D:/PhD/PhD project/Bloggers/Papers attached with data/HIV incidence among female sex workers"
+```
+
+```{r}
+#| message: false
+#| warning: false
+
+# Read CSV 
+hiv_tab_1_data <- read_csv(file.path(data_folder, "data_file_Table_1.csv"))
+
+# Inspect the structure of the dataset
+str(hiv_tab_1_data)
+```
+
+::: callout-note
+## Notes
+
+Hầu hết tất cả các biến trong `dataset` này đều là dạng `num`(`numeric`), trừ biến `unique`. Như vậy để phù hợp với dạng dữ liệu được mô tả theo bảng ở trên (theo bài báo công bố), một số biến sẽ cần biến đổi thành `factor`(Biến phân loại/nhị phân)
+:::
+
+# 4. Biến đổi/Mã hóa dữ liệu
+
+### Chuyển một số biến sang dạng `factor`
+
+```{r}
+# Convert to factors ----
+factor_vars <- c(
+  "q103", "age_3cat", "q105", "q114", "q107",
+  "constante", "q211", "groupe", "anal", "hla9",
+  "gono", "chlam", "gonochlam")
+
+hiv_tab_1_data[factor_vars] <- lapply(hiv_tab_1_data[factor_vars], as.factor)
+```
+
+### Gán nhãn giá trị
+
+Gán nhãn giá trị cho các biến (theo bảng mô tả các biến ở trên)
+
+```{r}
+#Labeling for values of variables ----
+levels(hiv_tab_1_data$q103)=c("Benin","Ghana","Nigeria", "Togo", "Others")
+levels(hiv_tab_1_data$age_3cat)=c("18 - 24","25 - 34",">=35")
+levels(hiv_tab_1_data$q105)=c("Not educated","Primary","Secondary",
+                              "Postsecondary, university")
+levels(hiv_tab_1_data$q114)=c("Married","Single","Divorced", "Widowed")
+levels(hiv_tab_1_data$q107)=c("Brothel","Home","Bars", "Hotels","Street",
+                              "Nightclub","Others")
+levels(hiv_tab_1_data$constante)=c("Yes","No")
+levels(hiv_tab_1_data$q211)=c("Yes","No")
+levels(hiv_tab_1_data$groupe)=c("HIV positive, treated",
+                                "HIV positive, not treated", "HIV negative")
+levels(hiv_tab_1_data$anal)=c("No","Yes")
+levels(hiv_tab_1_data$hla9)=c("Yes","No")
+levels(hiv_tab_1_data$gono)=c("Positive","Negative", "No answer")
+levels(hiv_tab_1_data$chlam)=c("Positive","Negative", "No answer")
+levels(hiv_tab_1_data$gonochlam)=c("Positive","Negative", "No answer")
+```
+
+# 5. Phân tích kết quả và xuất file
+
+Để có bảng kết quả (Bảng 1) như trong bài báo đã công bố, chúng ta thực hiện như sau:
+
+```{r}
+#Table 1. Baseline characteristics  ----
+des_table1 <- hiv_tab_1_data |>
+  tbl_summary(
+    include = c(q103, age, age_3cat, q105, q114, q107, duree, q205, q219,
+                constante, q211, groupe, anal, hla9, gono, chlam, gonochlam,
+                cd4_nb, charge_virale_copies),
+    type = list(
+      all_continuous() ~ "continuous2"
+    ),
+    statistic = all_continuous() ~ c("{median} ({p25}, {p75})"),
+    percent = "column",
+    label = list(
+      q103 ~ "Nationality",
+      age ~ "Age in years",
+      age_3cat ~ "Age in years (categories)",
+      q105 ~ "Education",
+      q114 ~ "Marital status",
+      q107 ~ "Place of work",
+      duree ~ "Duration in sex work, months",
+      q205 ~ "Number of clients, last 7 days of work",
+      q219 ~ "Number of sexual intercourses, last 3 days",
+      constante ~ "Consistent condom use with clients (last 7 days of work)",
+      q211 ~ "Condom use with last client",
+      groupe ~ "HIV/treatment status",
+      anal ~ "Ever had anal sex (any partner)",
+      hla9 ~ "Ever had oral sex (any partner)",
+      gono ~ "NG prevalence",
+      chlam ~ "CT prevalence",
+      gonochlam ~ "NG/CT prevalence",
+      cd4_nb ~ "CD4 cell count/mm³",
+      charge_virale_copies ~ "Viral load"
+    ),
+    digits = list(
+      all_continuous() ~ 2,
+      all_categorical() ~ 1
+    ),
+    missing = "no"
+  ) %>%
+  modify_header(label = "**Variable**") |>         # change label column header
+  modify_caption("**Table 1. Baseline characteristics of 319 female sex workers,
+                 Cotonou, Benin, 2008–2012**")   # add table name/title
+des_table1
+
+```
+
+::: callout-note
+## Bảng kết quả có thể xuất ra file word
+
+```{r}
+des_table1 |>
+ as_flex_table() |>
+ save_as_docx(path = "Table 1. Baseline characteristics.docx")
+```
+:::
