@@ -1,0 +1,15 @@
+{
+  "talks.qmd": {
+    "talks.html": "2e5cc3b7"
+  },
+  "Day_1.qmd": {
+    "Day_1.html": "c679ac63"
+  },
+  "Descriptive statistics.qmd": {
+    "Descriptive statistics.html": "f9694abf"
+  },
+  "Day_2.qmd": {
+    "Day_2.html": "ec77dc74",
+    "Day_2.tex": "d7f4fd75"
+  }
+}

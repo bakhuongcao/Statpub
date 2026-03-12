@@ -1,7 +1,12 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
 
-/.quarto/
-**/*.quarto_ipynb
+# Ignore all files in 'Stats in R course' folder
+Stats in R course/
+VN_map/
+
+# Ignore all Word documents
+*.doc
+*.docx
+*.qmd
+*.Rproj
+*.md
+*.Rhistory
