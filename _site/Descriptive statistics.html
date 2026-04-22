@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ba Khuong Cao - caobakhuongytcc@gmail.com">
 
-<title>Phân tích mô tả sử dụng R</title>
+<title>Phân tích mô tả sử dụng R – Statpub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,28 +59,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Descriptive statistics_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Descriptive statistics_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Descriptive statistics_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Descriptive statistics_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="Descriptive statistics_files/libs/quarto-html/popper.min.js"></script>
-<script src="Descriptive statistics_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Descriptive statistics_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Descriptive statistics_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Descriptive statistics_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Descriptive statistics_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Descriptive statistics_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Descriptive statistics_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
+<link rel="stylesheet" href="custom_css/style.css">
 </head>
 
-<body class="quarto-light">
+<body class="nav-fixed quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Statpub</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./Descriptive statistics.html" aria-current="page"> 
+<span class="menu-text">Descriptive Statistics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Statistics in practice.html"> 
+<span class="menu-text">Statistics in Practice</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#mô-tả-dataset" id="toc-mô-tả-dataset" class="nav-link active" data-scroll-target="#mô-tả-dataset">1. Mô tả dataset</a></li>
@@ -94,7 +167,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#phân-tích-kết-quả-và-xuất-file" id="toc-phân-tích-kết-quả-và-xuất-file" class="nav-link" data-scroll-target="#phân-tích-kết-quả-và-xuất-file">5. Phân tích kết quả và xuất file</a></li>
   </ul>
 </nav>
-</div>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -122,6 +196,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div style="display: flex; align-items: center; margin-top: 2em; margin-bottom: 2em;">
+<div style="flex-shrink: 0;">
+<p><img src="assets/icons/Anhthe2.jpg" alt="Profile Image" style="width:120px; height:120px; border-radius:50%; object-fit:cover; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); margin-right: 1.5em;"></p>
+</div>
+<div>
+<h2 style="color:#fff; margin:0;" class="anchored">
+Ba Khuong Cao
+</h2>
+<p style="color:#cbd5e1; margin:0;">
+PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
+</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -446,23 +533,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="st">                 Cotonou, Benin, 2008–2012**"</span>)   <span class="co"># add table name/title</span></span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>des_table1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="pgoyadicxu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pgoyadicxu table {
+<div id="mqiwcpsobv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mqiwcpsobv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pgoyadicxu thead, #pgoyadicxu tbody, #pgoyadicxu tfoot, #pgoyadicxu tr, #pgoyadicxu td, #pgoyadicxu th {
+#mqiwcpsobv thead, #mqiwcpsobv tbody, #mqiwcpsobv tfoot, #mqiwcpsobv tr, #mqiwcpsobv td, #mqiwcpsobv th {
   border-style: none;
 }
 
-#pgoyadicxu p {
+#mqiwcpsobv p {
   margin: 0;
   padding: 0;
 }
 
-#pgoyadicxu .gt_table {
+#mqiwcpsobv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -488,12 +575,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_caption {
+#mqiwcpsobv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pgoyadicxu .gt_title {
+#mqiwcpsobv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -505,7 +592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#pgoyadicxu .gt_subtitle {
+#mqiwcpsobv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -517,7 +604,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#pgoyadicxu .gt_heading {
+#mqiwcpsobv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -529,13 +616,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_bottom_border {
+#mqiwcpsobv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_col_headings {
+#mqiwcpsobv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -550,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_col_heading {
+#mqiwcpsobv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -570,7 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#pgoyadicxu .gt_column_spanner_outer {
+#mqiwcpsobv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -582,15 +669,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#pgoyadicxu .gt_column_spanner_outer:first-child {
+#mqiwcpsobv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pgoyadicxu .gt_column_spanner_outer:last-child {
+#mqiwcpsobv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pgoyadicxu .gt_column_spanner {
+#mqiwcpsobv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -602,11 +689,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#pgoyadicxu .gt_spanner_row {
+#mqiwcpsobv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pgoyadicxu .gt_group_heading {
+#mqiwcpsobv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -632,7 +719,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#pgoyadicxu .gt_empty_group_heading {
+#mqiwcpsobv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -647,15 +734,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#pgoyadicxu .gt_from_md > :first-child {
+#mqiwcpsobv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pgoyadicxu .gt_from_md > :last-child {
+#mqiwcpsobv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pgoyadicxu .gt_row {
+#mqiwcpsobv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -674,7 +761,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#pgoyadicxu .gt_stub {
+#mqiwcpsobv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -687,7 +774,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pgoyadicxu .gt_stub_row_group {
+#mqiwcpsobv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -701,15 +788,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#pgoyadicxu .gt_row_group_first td {
+#mqiwcpsobv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pgoyadicxu .gt_row_group_first th {
+#mqiwcpsobv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pgoyadicxu .gt_summary_row {
+#mqiwcpsobv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -719,16 +806,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pgoyadicxu .gt_first_summary_row {
+#mqiwcpsobv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_first_summary_row.thick {
+#mqiwcpsobv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pgoyadicxu .gt_last_summary_row {
+#mqiwcpsobv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -738,7 +825,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_grand_summary_row {
+#mqiwcpsobv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -748,7 +835,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pgoyadicxu .gt_first_grand_summary_row {
+#mqiwcpsobv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -758,7 +845,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_last_grand_summary_row_top {
+#mqiwcpsobv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -768,11 +855,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_striped {
+#mqiwcpsobv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pgoyadicxu .gt_table_body {
+#mqiwcpsobv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -781,7 +868,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_footnotes {
+#mqiwcpsobv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -795,7 +882,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_footnote {
+#mqiwcpsobv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -804,7 +891,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pgoyadicxu .gt_sourcenotes {
+#mqiwcpsobv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -818,7 +905,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pgoyadicxu .gt_sourcenote {
+#mqiwcpsobv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -826,72 +913,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pgoyadicxu .gt_left {
+#mqiwcpsobv .gt_left {
   text-align: left;
 }
 
-#pgoyadicxu .gt_center {
+#mqiwcpsobv .gt_center {
   text-align: center;
 }
 
-#pgoyadicxu .gt_right {
+#mqiwcpsobv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pgoyadicxu .gt_font_normal {
+#mqiwcpsobv .gt_font_normal {
   font-weight: normal;
 }
 
-#pgoyadicxu .gt_font_bold {
+#mqiwcpsobv .gt_font_bold {
   font-weight: bold;
 }
 
-#pgoyadicxu .gt_font_italic {
+#mqiwcpsobv .gt_font_italic {
   font-style: italic;
 }
 
-#pgoyadicxu .gt_super {
+#mqiwcpsobv .gt_super {
   font-size: 65%;
 }
 
-#pgoyadicxu .gt_footnote_marks {
+#mqiwcpsobv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pgoyadicxu .gt_asterisk {
+#mqiwcpsobv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pgoyadicxu .gt_indent_1 {
+#mqiwcpsobv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pgoyadicxu .gt_indent_2 {
+#mqiwcpsobv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pgoyadicxu .gt_indent_3 {
+#mqiwcpsobv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pgoyadicxu .gt_indent_4 {
+#mqiwcpsobv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pgoyadicxu .gt_indent_5 {
+#mqiwcpsobv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pgoyadicxu .katex-display {
+#mqiwcpsobv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pgoyadicxu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mqiwcpsobv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1192,10 +1279,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

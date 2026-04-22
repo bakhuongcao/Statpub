@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Statpub"
+  navbar:
+    left:
+      - text: Home
+        href: index.html
+      - text: Descriptive Statistics
+        href: Descriptive statistics.html
+      - text: Statistics in Practice
+        href: Statistics in practice.html
+
+format:
+  html:
+    css: custom_css/style.css
+    includes:
+      in-header: |
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      after-body: |
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="script/particles.js"></script>

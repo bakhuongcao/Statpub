@@ -1,12 +1,33 @@
 
-# Ignore all files in 'Stats in R course' folder
-Stats in R course/
-VN_map/
+# R / RStudio
+*.Rproj
+*.Rhistory
+*.RData
 
-# Ignore all Word documents
+# Quarto build artifacts
+.quarto/
+**/*.quarto_ipynb
+
+# Intermediate per-page render output (bundled into _site/ already)
+*_files/
+
+# Source / authoring files not needed on the site
+*.qmd
+*.Rmd
+*.md
 *.doc
 *.docx
-*.qmd
-*.Rproj
-*.md
-*.Rhistory
+*.sav
+*.csv
+*.rds
+
+# Unused asset folders (not referenced by index.html)
+fonts/
+js/
+css/
+components/
+resources/
+
+# Large data / course material folders
+Stats in R course/
+VN_map/
