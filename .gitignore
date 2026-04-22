@@ -7,6 +7,7 @@
 # Quarto build artifacts
 .quarto/
 **/*.quarto_ipynb
+_site/index.html
 
 # Intermediate per-page render output (bundled into _site/ already)
 *_files/
@@ -31,3 +32,5 @@ resources/
 # Large data / course material folders
 Stats in R course/
 VN_map/
+
+/.quarto/
