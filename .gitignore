@@ -15,6 +15,7 @@ _site/index.html
 # Source / authoring files not needed on the site
 *.qmd
 *.Rmd
+!README.md
 *.md
 *.doc
 *.docx
