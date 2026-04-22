@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ba Khuong Cao - caobakhuongytcc@gmail.com">
 
 <title>Phân tích mô tả sử dụng R – Statpub</title>
 <style>
@@ -156,10 +155,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mô-tả-dataset" id="toc-mô-tả-dataset" class="nav-link active" data-scroll-target="#mô-tả-dataset">1. Mô tả dataset</a></li>
-  <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages">2. Loading packages</a></li>
-  <li><a href="#loading-dataset" id="toc-loading-dataset" class="nav-link" data-scroll-target="#loading-dataset">3. Loading dataset</a></li>
-  <li><a href="#biến-đổimã-hóa-dữ-liệu" id="toc-biến-đổimã-hóa-dữ-liệu" class="nav-link" data-scroll-target="#biến-đổimã-hóa-dữ-liệu">4. Biến đổi/Mã hóa dữ liệu</a>
+  <li><a href="#tổng-quan-bộ-số-liệu" id="toc-tổng-quan-bộ-số-liệu" class="nav-link active" data-scroll-target="#tổng-quan-bộ-số-liệu">1. Tổng quan bộ số liệu</a></li>
+  <li><a href="#cài-đặt-và-nạp-gói-packages" id="toc-cài-đặt-và-nạp-gói-packages" class="nav-link" data-scroll-target="#cài-đặt-và-nạp-gói-packages">2. Cài đặt và nạp gói (Packages)</a></li>
+  <li><a href="#nạp-bộ-số-liệu" id="toc-nạp-bộ-số-liệu" class="nav-link" data-scroll-target="#nạp-bộ-số-liệu">3. Nạp bộ số liệu</a></li>
+  <li><a href="#mã-hóa-và-chuẩn-bị-dữ-liệu" id="toc-mã-hóa-và-chuẩn-bị-dữ-liệu" class="nav-link" data-scroll-target="#mã-hóa-và-chuẩn-bị-dữ-liệu">4. Mã hóa và chuẩn bị dữ liệu</a>
   <ul class="collapse">
   <li><a href="#chuyển-một-số-biến-sang-dạng-factor" id="toc-chuyển-một-số-biến-sang-dạng-factor" class="nav-link" data-scroll-target="#chuyển-một-số-biến-sang-dạng-factor">Chuyển một số biến sang dạng <code>factor</code></a></li>
   <li><a href="#gán-nhãn-giá-trị" id="toc-gán-nhãn-giá-trị" class="nav-link" data-scroll-target="#gán-nhãn-giá-trị">Gán nhãn giá trị</a></li>
@@ -180,12 +179,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ba Khuong Cao - caobakhuongytcc@gmail.com </p>
-          </div>
-  </div>
     
   
     
@@ -201,11 +194,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="assets/icons/Anhthe2.jpg" alt="Profile Image" style="width:120px; height:120px; border-radius:50%; object-fit:cover; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); margin-right: 1.5em;"></p>
 </div>
 <div>
-<h2 style="color:#fff; margin:0;" class="anchored">
+<h2 style="color:#f1f5f9; margin:0;" class="anchored">
 Ba Khuong Cao
 </h2>
-<p style="color:#cbd5e1; margin:0;">
+<p style="color:#4ade80; margin:0;">
 PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
+</p>
+<p style="color:#94a3b8; margin:0.3em 0 0 0; font-size:0.9em;">
+caobakhuongytcc@gmail.com
 </p>
 </div>
 </div>
@@ -215,13 +211,13 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Ưu điểm
+<span class="screen-reader-only">Important</span>Ưu điểm khi sử dụng R để phân tích mô tả
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><strong>Hạn chế sai sót</strong>, <strong>tiết kiệm thời gian/công sức</strong> bằng cách xuất trực tiếp bảng kết quả đưa vào bài báo/luận văn</p></li>
-<li><p><strong>Không điền thủ công</strong>: Không cần phải phân tích cho từng biến số và chuyển kết quả vào bảng một cách thủ công.</p></li>
+<li><p><strong>Giảm thiểu sai sót, tiết kiệm thời gian</strong>: Kết quả phân tích được xuất trực tiếp thành bảng, sẵn sàng đưa vào bài báo hoặc luận văn mà không cần chỉnh sửa thủ công.</p></li>
+<li><p><strong>Tự động hóa hoàn toàn</strong>: Không cần phân tích từng biến rồi sao chép kết quả vào bảng — tất cả được thực hiện chỉ với vài dòng lệnh.</p></li>
 </ul>
 </div>
 </div>
@@ -232,22 +228,22 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Các bước thực hiện
+<span class="screen-reader-only">Note</span>Quy trình thực hiện
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Làm quen với dataset (Mô tả ngắn gọn)</li>
-<li>Loading packages</li>
-<li>Loading dataset</li>
-<li>Thực hiện một số bước cần thiết để mã hóa dữ liệu</li>
-<li>Phân tích kết quả và xuất ra file Word (.docX)</li>
+<li>Tìm hiểu bộ số liệu (mô tả tổng quan)</li>
+<li>Cài đặt và nạp các gói cần thiết</li>
+<li>Nạp bộ số liệu vào R</li>
+<li>Mã hóa và chuẩn bị dữ liệu</li>
+<li>Phân tích thống kê mô tả và xuất kết quả ra file Word (.docx)</li>
 </ol>
 </div>
 </div>
-<section id="mô-tả-dataset" class="level1">
-<h1>1. Mô tả dataset</h1>
-<p>Trong phần phân tích ngày hôm nay, chúng ta sẽ sử dụng bộ số liệu được public trên tạp chí (<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0197251">Link</a>) về nhiễm HIV ở phụ nữ có hoạt động mại dâm.Các datasets liên quan đến bài báo này được công bố kèm theo bài báo này. Phần phân tích này sử dụng dataset có tên <code>data_file_Table_1.csv</code>. Phần mô tả cụ thể của dataset này như sau (Theo công bố trong bài báo):</p>
+<section id="tổng-quan-bộ-số-liệu" class="level1">
+<h1>1. Tổng quan bộ số liệu</h1>
+<p>Bộ số liệu được sử dụng trong phần phân tích này được công bố công khai trên tạp chí PLOS ONE (<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0197251">Xem bài báo</a>), nghiên cứu về tỷ lệ nhiễm HIV trong nhóm phụ nữ hành nghề mại dâm.Bộ số liệu được đính kèm cùng bài báo. Phần phân tích này sử dụng file <code>data_file_Table_1.csv</code>. Mô tả chi tiết các biến số (theo bài báo gốc) được trình bày trong bảng dưới đây:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 22%">
@@ -365,9 +361,9 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 </tbody>
 </table>
 </section>
-<section id="loading-packages" class="level1">
-<h1>2. Loading packages</h1>
-<p>Chúng ta sẽ sử dụng một vài packages: <code>gmodels</code>, <code>dplyr</code>, <code>psych</code>, <code>gtsummary</code>, <code>readxl</code>, <code>readr</code>, <code>finalfit</code>, <code>flextable</code>.</p>
+<section id="cài-đặt-và-nạp-gói-packages" class="level1">
+<h1>2. Cài đặt và nạp gói (Packages)</h1>
+<p>Phân tích này sử dụng các gói sau: <code>gmodels</code>, <code>dplyr</code>, <code>psych</code>, <code>gtsummary</code>, <code>readxl</code>, <code>readr</code>, <code>finalfit</code>, <code>flextable</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check whether pacman is available and install if needed</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org"</span>))</span>
@@ -377,9 +373,9 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(gmodels, dplyr, psych, gtsummary, readxl,readr,finalfit,flextable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="loading-dataset" class="level1">
-<h1>3. Loading dataset</h1>
-<p>Chúng ta có thể load dataset này vào R để phân tích:</p>
+<section id="nạp-bộ-số-liệu" class="level1">
+<h1>3. Nạp bộ số liệu</h1>
+<p>Nạp bộ số liệu vào R bằng các lệnh sau:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read CSV </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>hiv_tab_1_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">file.path</span>(data_folder, <span class="st">"data_file_Table_1.csv"</span>))</span>
@@ -440,16 +436,16 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Notes
+<span class="screen-reader-only">Note</span>Lưu ý
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Hầu hết tất cả các biến trong <code>dataset</code> này đều là dạng <code>num</code>(<code>numeric</code>), trừ biến <code>unique</code>. Như vậy để phù hợp với dạng dữ liệu được mô tả theo bảng ở trên (theo bài báo công bố), một số biến sẽ cần biến đổi thành <code>factor</code>(Biến phân loại/nhị phân)</p>
+<p>Hầu hết các biến trong bộ số liệu đều ở dạng <code>numeric</code> (<code>num</code>), ngoại trừ biến <code>unique</code>. Để phù hợp với bảng mô tả biến của bài báo gốc, một số biến cần được chuyển sang dạng <code>factor</code> (biến phân loại).</p>
 </div>
 </div>
 </section>
-<section id="biến-đổimã-hóa-dữ-liệu" class="level1">
-<h1>4. Biến đổi/Mã hóa dữ liệu</h1>
+<section id="mã-hóa-và-chuẩn-bị-dữ-liệu" class="level1">
+<h1>4. Mã hóa và chuẩn bị dữ liệu</h1>
 <section id="chuyển-một-số-biến-sang-dạng-factor" class="level3">
 <h3 class="anchored" data-anchor-id="chuyển-một-số-biến-sang-dạng-factor">Chuyển một số biến sang dạng <code>factor</code></h3>
 <div class="cell">
@@ -488,7 +484,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 </section>
 <section id="phân-tích-kết-quả-và-xuất-file" class="level1">
 <h1>5. Phân tích kết quả và xuất file</h1>
-<p>Để có bảng kết quả (Bảng 1) như trong bài báo đã công bố, chúng ta thực hiện như sau:</p>
+<p>Để tạo Bảng 1 như trong bài báo gốc, thực hiện các lệnh sau:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Table 1. Baseline characteristics  ----</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>des_table1 <span class="ot">&lt;-</span> hiv_tab_1_data <span class="sc">|&gt;</span></span>
@@ -533,23 +529,23 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="st">                 Cotonou, Benin, 2008–2012**"</span>)   <span class="co"># add table name/title</span></span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>des_table1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="mqiwcpsobv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mqiwcpsobv table {
+<div id="kulhnrnajg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kulhnrnajg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mqiwcpsobv thead, #mqiwcpsobv tbody, #mqiwcpsobv tfoot, #mqiwcpsobv tr, #mqiwcpsobv td, #mqiwcpsobv th {
+#kulhnrnajg thead, #kulhnrnajg tbody, #kulhnrnajg tfoot, #kulhnrnajg tr, #kulhnrnajg td, #kulhnrnajg th {
   border-style: none;
 }
 
-#mqiwcpsobv p {
+#kulhnrnajg p {
   margin: 0;
   padding: 0;
 }
 
-#mqiwcpsobv .gt_table {
+#kulhnrnajg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -575,12 +571,12 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-left-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_caption {
+#kulhnrnajg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mqiwcpsobv .gt_title {
+#kulhnrnajg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -592,7 +588,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-bottom-width: 0;
 }
 
-#mqiwcpsobv .gt_subtitle {
+#kulhnrnajg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -604,7 +600,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-top-width: 0;
 }
 
-#mqiwcpsobv .gt_heading {
+#kulhnrnajg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -616,13 +612,13 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-right-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_bottom_border {
+#kulhnrnajg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_col_headings {
+#kulhnrnajg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -637,7 +633,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-right-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_col_heading {
+#kulhnrnajg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -657,7 +653,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   overflow-x: hidden;
 }
 
-#mqiwcpsobv .gt_column_spanner_outer {
+#kulhnrnajg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -669,15 +665,15 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   padding-right: 4px;
 }
 
-#mqiwcpsobv .gt_column_spanner_outer:first-child {
+#kulhnrnajg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mqiwcpsobv .gt_column_spanner_outer:last-child {
+#kulhnrnajg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mqiwcpsobv .gt_column_spanner {
+#kulhnrnajg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -689,11 +685,11 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   width: 100%;
 }
 
-#mqiwcpsobv .gt_spanner_row {
+#kulhnrnajg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mqiwcpsobv .gt_group_heading {
+#kulhnrnajg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -719,7 +715,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   text-align: left;
 }
 
-#mqiwcpsobv .gt_empty_group_heading {
+#kulhnrnajg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -734,15 +730,15 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   vertical-align: middle;
 }
 
-#mqiwcpsobv .gt_from_md > :first-child {
+#kulhnrnajg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mqiwcpsobv .gt_from_md > :last-child {
+#kulhnrnajg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mqiwcpsobv .gt_row {
+#kulhnrnajg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -761,7 +757,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   overflow-x: hidden;
 }
 
-#mqiwcpsobv .gt_stub {
+#kulhnrnajg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -774,7 +770,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   padding-right: 5px;
 }
 
-#mqiwcpsobv .gt_stub_row_group {
+#kulhnrnajg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -788,15 +784,15 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   vertical-align: top;
 }
 
-#mqiwcpsobv .gt_row_group_first td {
+#kulhnrnajg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mqiwcpsobv .gt_row_group_first th {
+#kulhnrnajg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mqiwcpsobv .gt_summary_row {
+#kulhnrnajg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -806,16 +802,16 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   padding-right: 5px;
 }
 
-#mqiwcpsobv .gt_first_summary_row {
+#kulhnrnajg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_first_summary_row.thick {
+#kulhnrnajg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mqiwcpsobv .gt_last_summary_row {
+#kulhnrnajg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -825,7 +821,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-bottom-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_grand_summary_row {
+#kulhnrnajg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -835,7 +831,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   padding-right: 5px;
 }
 
-#mqiwcpsobv .gt_first_grand_summary_row {
+#kulhnrnajg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -845,7 +841,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-top-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_last_grand_summary_row_top {
+#kulhnrnajg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -855,11 +851,11 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-bottom-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_striped {
+#kulhnrnajg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mqiwcpsobv .gt_table_body {
+#kulhnrnajg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -868,7 +864,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-bottom-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_footnotes {
+#kulhnrnajg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -882,7 +878,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-right-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_footnote {
+#kulhnrnajg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -891,7 +887,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   padding-right: 5px;
 }
 
-#mqiwcpsobv .gt_sourcenotes {
+#kulhnrnajg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -905,7 +901,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   border-right-color: #D3D3D3;
 }
 
-#mqiwcpsobv .gt_sourcenote {
+#kulhnrnajg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -913,72 +909,72 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
   padding-right: 5px;
 }
 
-#mqiwcpsobv .gt_left {
+#kulhnrnajg .gt_left {
   text-align: left;
 }
 
-#mqiwcpsobv .gt_center {
+#kulhnrnajg .gt_center {
   text-align: center;
 }
 
-#mqiwcpsobv .gt_right {
+#kulhnrnajg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mqiwcpsobv .gt_font_normal {
+#kulhnrnajg .gt_font_normal {
   font-weight: normal;
 }
 
-#mqiwcpsobv .gt_font_bold {
+#kulhnrnajg .gt_font_bold {
   font-weight: bold;
 }
 
-#mqiwcpsobv .gt_font_italic {
+#kulhnrnajg .gt_font_italic {
   font-style: italic;
 }
 
-#mqiwcpsobv .gt_super {
+#kulhnrnajg .gt_super {
   font-size: 65%;
 }
 
-#mqiwcpsobv .gt_footnote_marks {
+#kulhnrnajg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mqiwcpsobv .gt_asterisk {
+#kulhnrnajg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mqiwcpsobv .gt_indent_1 {
+#kulhnrnajg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mqiwcpsobv .gt_indent_2 {
+#kulhnrnajg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mqiwcpsobv .gt_indent_3 {
+#kulhnrnajg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mqiwcpsobv .gt_indent_4 {
+#kulhnrnajg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mqiwcpsobv .gt_indent_5 {
+#kulhnrnajg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#mqiwcpsobv .katex-display {
+#kulhnrnajg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#mqiwcpsobv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kulhnrnajg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1268,7 +1264,7 @@ PhD Candidate in Health Sciences, University of Groningen, the Netherlands.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Bảng kết quả có thể xuất ra file word
+<span class="screen-reader-only">Note</span>Xuất bảng kết quả ra file Word
 </div>
 </div>
 <div class="callout-body-container callout-body">
