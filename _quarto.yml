@@ -1,6 +1,11 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
+    - "Stats in R course/**/*.qmd"
+    - "!Stats in R course/**/*.Rmd"
+    - "!Stats in R course/**/*.rmd"
 
 website:
   title: "Statpub"

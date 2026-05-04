@@ -1,5 +1,243 @@
 [
   {
+    "objectID": "Stats in R course/Day_1/Assigment_day_1.html",
+    "href": "Stats in R course/Day_1/Assigment_day_1.html",
+    "title": "Day_1_Intro_R",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2\n\n\n\n5*4\n\n[1] 20\n\n\n\n\n[1] 5\n\n\n[1] 25\n\n\n[1] -5.4\n\n\n[1] 0.3\n\n\n[1] NA\n\n\n[1] 2.9\n\n\n[1] 101\n\n\n[1] \"Ilja Nolte\"         \"Maaike de Vries\"    \"Peter van der Most\"\n[4] \"Douwe Postmus\"     \n\n\n[1] \"IljaNolte\"         \"Maaikede Vries\"    \"Petervan der Most\"\n[4] \"DouwePostmus\"     \n\n\n[1] FALSE\n\n\n[1] TRUE\n\n\nWarning in matrix(1:10, nrow = 3, ncol = 2): data length [10] is not a\nsub-multiple or multiple of the number of rows [3]\n\n\n     [,1] [,2]\n[1,]    1    4\n[2,]    2    5\n[3,]    3    6"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "",
+    "text": "Create the vector x &lt;- c(8, 1.4, 3, -5.4, 2.2). What is the command y &lt;- 2; x[y] &lt;- -1.7 doing?\nAnswer: As y is 2, it will change the second element of x to -1.7.\n\nx &lt;- c(8, 1.4, 3, -5.4, 2.2)\ny &lt;- 2\nx[y] &lt;- -1.7\nx\n\n[1]  8.0 -1.7  3.0 -5.4  2.2"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-1",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-1",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "",
+    "text": "Create the vector x &lt;- c(8, 1.4, 3, -5.4, 2.2). What is the command y &lt;- 2; x[y] &lt;- -1.7 doing?\nAnswer: As y is 2, it will change the second element of x to -1.7.\n\nx &lt;- c(8, 1.4, 3, -5.4, 2.2)\ny &lt;- 2\nx[y] &lt;- -1.7\nx\n\n[1]  8.0 -1.7  3.0 -5.4  2.2"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-2",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-2",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWhat is the command x[-1] doing? And x[c(1,2)]? And x[c(1,1,2,2)]? Is x changed after all these commands? Can you explain why or why not?\nAnswer:\n\nx[-1] removes the first element from vector x and shifts the other elements one position up. The result is c(-1.7, 3, -5.4, 2.2).\nx[c(1,2)] extracts the first and second element from vector x. The result is c(8, -1.7).\nx[c(1,1,2,2)] twice extracts the first and second element from vector x. The result is c(8, 8, -1.7, -1.7).\n\nAfter all these commands x is still c(8, -1.7, 3, -5.4, 2.2). The commands only print the results to the screen, but they do not change the variable.\n\nx[-1]\n\n[1] -1.7  3.0 -5.4  2.2\n\nx[c(1,2)]\n\n[1]  8.0 -1.7\n\nx[c(1,1,2,2)]\n\n[1]  8.0  8.0 -1.7 -1.7\n\nx  # x is unchanged\n\n[1]  8.0 -1.7  3.0 -5.4  2.2"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-3",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-3",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCreate the vector 1, 2, 3, 4, 5, 10, 9, 8, 7, 6 in an efficient way.\nAnswer: The first 5 values are the sequence from 1 to 5, and the latter 5 values are the sequence from 10 down to 6. Therefore:\n\nc(1:5, 10:6)\n\n [1]  1  2  3  4  5 10  9  8  7  6"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-4",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-4",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nHow would you create the vector c(1, 1, 1, 2, 2)?\nAnswer: Three times a 1 can be created by rep(1, 3), and two times a 2 by rep(2, 2). Combined:\n\nc(rep(1, 3), rep(2, 2))\n\n[1] 1 1 1 2 2"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-5",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-5",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nWhat warning did you get with the last command?\nAnswer:\nIn c(1:10) - c(1:3) :\n  longer object length is not a multiple of shorter object length\nThe first vector has length 10 and the second has length 3. Since 10 is not a multiple of 3, a warning is given. It will still produce output where the second vector is recycled:\n\\((1\\ 2\\ 3\\ 4\\ 5\\ 6\\ 7\\ 8\\ 9\\ 10) - (1\\ 2\\ 3\\ 1\\ 2\\ 3\\ 1\\ 2\\ 3\\ 1) = (0\\ 0\\ 0\\ 3\\ 3\\ 3\\ 6\\ 6\\ 6\\ 9)\\)\nIn the command c(1:n) - c(1:2) no warning is given since 10 is a multiple of 2. The result is:\n\\((1\\ 2\\ 3\\ 4\\ 5\\ 6\\ 7\\ 8\\ 9\\ 10) - (1\\ 2\\ 1\\ 2\\ 1\\ 2\\ 1\\ 2\\ 1\\ 2) = (0\\ 0\\ 2\\ 2\\ 4\\ 4\\ 6\\ 6\\ 8\\ 8)\\)"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-6",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-6",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nWhat do the logical operators &, | and ! mean?\nAnswer:\n\n& means that both conditions need to be TRUE to result in TRUE for the new vector.\n| means that if one of the conditions is TRUE the result will be TRUE for the new vector.\n! means the negation of the condition: TRUE becomes FALSE and vice versa."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-7",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-7",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nCheck out the results of the second and fourth commands. Do you get what happened?\nAnswer:\n\nx[x==3]: extracts from x all elements equal to 3. As the value 3 only occurs once, the result is 3.\nx[c1]: c1 is a vector with alternating TRUE and FALSE. This extracts the 1st, 3rd, 5th, 7th, and 9th elements, yielding c(0, 2, 4, 6, 8)."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-8",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-8",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nWhat is the outcome of which(x==7)? And of x[which(x==7)]?\nAnswer:\n\nwhich(x==7) returns 8, since the 8th element of x is equal to 7.\nx[which(x==7)] returns 7, since all elements equal to 7 are extracted and there is only one.\n\n\nNote: In practice x[which(x==7)] gives the same result as x[x==7], but the principle differs. which(x==7) creates a vector of indices, whereas x==7 creates a logical vector of the same length as x."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-9",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-9",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nHow would you extract only the 4th element from vector x?\n\nx[4]"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-10",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-10",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nHow would you extract only the elements that are equal to or larger than 4 from x?\n\nx[x &gt;= 4]\n# or equivalently:\nx[which(x &gt;= 4)]"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-11",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-11",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nCreate the vector 1, 2, 3, …, 10. Extract all elements that are larger than 4 and smaller than 8.\n\na &lt;- c(1:10)\na[a &gt; 4 & a &lt; 8]\n\n[1] 5 6 7"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-12",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-12",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nCreate the vector 1, 2, 3, …, 10. Extract all elements that are smaller than 3 or larger than 6.\n\na &lt;- c(1:10)\na[a &lt; 3 | a &gt; 6]\n\n[1]  1  2  7  8  9 10"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-13",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-13",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 13",
+    "text": "Exercise 13\nExtract the first seven elements of vector x. Next extend the vector to contain 15 elements. What are values of elements 8 to 15?\nAnswer: The first seven elements can be extracted by length(x) &lt;- 7 or x &lt;- x[1:7], yielding x = c(1, 2, 3, 4, 5, 6, 7).\nExtending to length 15 via length(x) &lt;- 15 yields c(1, 2, 3, 4, 5, 6, 7, NA, NA, NA, NA, NA, NA, NA, NA). Elements 8–15 are set to NA (missing value)."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-14",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-14",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 14",
+    "text": "Exercise 14\nCreate the vector 3, 4, 5, NA, 7, 8, 9. Which element is missing?\nAnswer: is.na(x) yields a logical vector of the same length as x. which(is.na(x)) gives the index of the missing element.\n\nx &lt;- c(3, 4, 5, NA, 7, 8, 9)\nwhich(is.na(x))\n\n[1] 4"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-15",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-15",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 15",
+    "text": "Exercise 15\nCreate the vector c(2, 4, 6, …, 18, 20). Change the value 12 to a missing value.\n\nb &lt;- seq(2, 20, 2)\nb[which(b == 12)] &lt;- NA\nb\n\n [1]  2  4  6  8 10 NA 14 16 18 20"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-16",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-16",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 16",
+    "text": "Exercise 16\nCreate the vector c(2, 4, 6, …, 18, 20). Set any value above 15 to missing.\n\nb &lt;- seq(2, 20, 2)\nb[which(b &gt; 15)] &lt;- NA\nb\n\n [1]  2  4  6  8 10 12 14 NA NA NA"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-17",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-17",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 17",
+    "text": "Exercise 17\nTry out the following and explain what happens:\n\ns1 &lt;- c(\"Morning\", \"Afternoon\", \"Evening\", \"Night\")\ns2 &lt;- c(\"coffee\", \"tea\")\ns3 &lt;- c(\"apple\", \"banana\", \"pear\")\npaste(s1, s2)\n\n[1] \"Morning coffee\" \"Afternoon tea\"  \"Evening coffee\" \"Night tea\"     \n\npaste(s1, s3)\n\n[1] \"Morning apple\"    \"Afternoon banana\" \"Evening pear\"     \"Night apple\"     \n\npaste(s2, s3)\n\n[1] \"coffee apple\" \"tea banana\"   \"coffee pear\" \n\n\nAnswer:\n\npaste(s1, s2) yields c(\"Morning coffee\", \"Afternoon tea\", \"Evening coffee\", \"Night tea\"). No problem.\npaste(s1, s3) yields c(\"Morning apple\", \"Afternoon banana\", \"Evening pear\", \"Night apple\"). The vectors are not of equal length; “apple” is pasted twice as the first element of the shorter vector.\npaste(s2, s3) yields c(\"coffee apple\", \"tea banana\", \"coffee pear\"). “coffee” is pasted twice as the first element of the shorter vector."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-18",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-18",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 18",
+    "text": "Exercise 18\nWhat is the command to create c(\"Monday\", \"Tuesday\", \"Wednesday\") using paste0()?\nAnswer: Recognize the common part \"day\" and the unique prefixes:\n\npaste0(c(\"Mon\", \"Tues\", \"Wednes\"), \"day\")\n\n[1] \"Monday\"    \"Tuesday\"   \"Wednesday\"\n\n\npaste0() is like paste() with sep=\"\" — it concatenates strings without a separator."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-19",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-19",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 19",
+    "text": "Exercise 19\nTry print(s) and print(f) and check the differences.\nAnswer:\n\ns is a vector of character values. It shows no levels.\nf is a factor with levels \"females\" and \"males\" — comparable to SPSS value labels."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-20",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-20",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 20",
+    "text": "Exercise 20\nConvert s into a factor with 'male' as the first level and 'female' as the second. Then relabel to 'M' and 'F'.\n\nfactor(s, levels = c(\"male\", \"female\"))\nfactor(s, labels = c(\"F\", \"M\"))\nfactor(s, levels = c(\"male\", \"female\"), labels = c(\"M\", \"F\"))"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-21",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-21",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 21",
+    "text": "Exercise 21\nConvert variable t into an ordered factor.\n\nfactor(t, levels = c(\"lean\", \"normal\", \"overweight\"), ordered = TRUE)"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-22",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-22",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 22",
+    "text": "Exercise 22\nInspect bmif. What happens when ordered_result = TRUE is added? Adapt the level labels.\nAnswer:\n\nbmi &lt;- c(17, 22, 23, 27, 21, 18, 26)\nbmif &lt;- cut(bmi, breaks = c(0, 20, 25, Inf), ordered_result = TRUE)\nlevels(bmif) &lt;- c(\"lean\", \"normal\", \"overweight\")\nbmif\n\ncut() with ordered_result = TRUE turns bmif into an ordered factor: lean &lt; normal &lt; overweight."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-23",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-23",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 23",
+    "text": "Exercise 23\nWhat happens when you convert bmif to a numerical vector?\nAnswer: as.numeric(bmif) returns the internal factor level integers (e.g. 1 2 2 3 2 1 3), not the values of the factor labels."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-24",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-24",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 24",
+    "text": "Exercise 24\nConvert factor bmif to a numeric vector bmi_num with values 17.5 for 'lean', 22.5 for 'normal', and 27.5 for 'overweight'.\n\nlevels(bmif) &lt;- c(17.5, 22.5, 27.5)\nbmi_char &lt;- as.character(bmif)  # convert to character first\nbmi_num  &lt;- as.numeric(bmi_char)\nprint(bmi_num)  # returns [1] 17.5 22.5 22.5 27.5 22.5 17.5 27.5"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-25",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-25",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 25",
+    "text": "Exercise 25\nRead the help page for rep(). How many arguments does it have? Which are required and which optional?\nAnswer: rep() has four arguments: x, length.out, times, and each.\n\nx is required: the vector to be repeated.\nlength.out, times, and each are optional: they control the total length, number of full repetitions, and element-wise repetitions, respectively."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-26",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-26",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 26",
+    "text": "Exercise 26\nExplain each of the following commands:\n\nrep(x = 1:5, times = 3)         # 1:5 repeated 3 times end-to-end\n\n [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5\n\nrep(x = 1:5, each = 3)          # each element repeated 3 times\n\n [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5\n\nrep(x = 1:5, times = 3, each = 2)  # element-wise ×2, then whole vector ×3\n\n [1] 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5\n\nrep(x = 1:5, each = 2, times = 3)  # same as above (argument order doesn't matter)\n\n [1] 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5\n\nrep(x = 1:5, times = 3, each = 2, length.out = 12)  # result truncated at 12\n\n [1] 1 1 2 2 3 3 4 4 5 5 1 1"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-27",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-27",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 27",
+    "text": "Exercise 27\nWhat is the difference between the third and fourth command in Exercise 26?\nAnswer: There is no difference — the order of named arguments has no effect on the result."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-28",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-28",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 28",
+    "text": "Exercise 28\nWhat is the function to round numbers to the closest integer?\nAnswer: round()"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-29",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-29",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 29",
+    "text": "Exercise 29\nRound 2.54 to the closest integer and to one decimal place.\n\nround(2.54)          # yields 3 (default digits = 0)\n\n[1] 3\n\nround(2.54, digits = 1)  # yields 2.5\n\n[1] 2.5"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-30",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-30",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 30",
+    "text": "Exercise 30\nWhat other rounding functions are available in R? Why is the output different for round(1:9 + 0.3) and signif(1:9 + 0.3)?\nAnswer:\n\n\n\n\n\n\n\nFunction\nDescription\n\n\n\n\nceiling()\nRounds to the nearest integer larger than the value\n\n\nfloor()\nRounds to the nearest integer not larger than the value\n\n\ntrunc()\nRounds towards 0 to the nearest integer\n\n\nsignif()\nRounds to a specified number of significant digits\n\n\n\n\nround(1:9 + 0.3, 1) yields c(1.3, 2.3, …, 9.3).\nsignif(1:9 + 0.3, 1) yields c(1, 2, 3, 4, 5, 6, 7, 8, 9), since it rounds to one significant digit (the digit before the decimal point)."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-31",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#exercise-31",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Exercise 31",
+    "text": "Exercise 31\nFind a way to select the first 4 characters of \"Hello, good morning\".\nAnswer: Use substr():\n\nsubstr(\"Hello, good morning\", 1, 4)\n\n[1] \"Hell\""
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1.html#optional-exercises",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1.html#optional-exercises",
+    "title": "Day 1: Introduction into R – Answer Sheet",
+    "section": "Optional Exercises",
+    "text": "Optional Exercises\n\nExercise 32\nCreate the vector 1, 1, 2, 3, 3, 4, 5, 5 in multiple ways.\n\nc(rep(1,2), 2, rep(3,2), 4, rep(5,2))\n\n[1] 1 1 2 3 3 4 5 5\n\nsort(c(1:5, 1, 3, 5))\n\n[1] 1 1 2 3 3 4 5 5\n\nc(1, 1:3, 3:5, 5)\n\n[1] 1 1 2 3 3 4 5 5\n\nrep(c(1:5), each = 2)[-c(4, 8)]\n\n[1] 1 1 2 3 3 4 5 5\n\n\n\n\n\nExercise 33\nDetermine which values between 1 and 20 are divisible by both 2 and 3.\n\nx &lt;- c(1:20)\nx[x %% 2 == 0 & x %% 3 == 0]\n\n[1]  6 12 18\n\n\n\n\n\nExercise 34\nCreate c(\"AB\", \"BC\", \"CD\", \"DE\", \"EF\") using LETTERS and paste0().\n\npaste0(LETTERS[1:5], LETTERS[2:6])\n\n[1] \"AB\" \"BC\" \"CD\" \"DE\" \"EF\"\n\n\n\n\n\nExercise 35\nFrom the vector in Exercise 34, select only elements containing \"C\" using grep().\n\ns &lt;- paste0(LETTERS[1:5], LETTERS[2:6])\ns[grep(\"C\", s)]  # yields c(\"BC\", \"CD\")\n\n[1] \"BC\" \"CD\"\n\n\n\n\n\nExercise 36\nConvert s (from page 7) into a factor, changing level labels to 'M' for male and 'F' for female.\n\nfactor(s, labels = c(\"F\", \"M\"))\n\n\n\n\nExercise 37\nCreate a vector 1, 2, …, 10 and order it in descending order.\n\nx &lt;- c(1:10)\nsort(x, decreasing = TRUE)\n\n [1] 10  9  8  7  6  5  4  3  2  1\n\n\n\n\n\nExercise 38\nCreate the vector 1, 1, 2, 2, 3, 3, 4, 4. Extract the unique elements.\n\nx &lt;- rep(1:4, each = 2)\nunique(x)  # yields c(1, 2, 3, 4)\n\n[1] 1 2 3 4"
+  },
+  {
     "objectID": "Publications.html",
     "href": "Publications.html",
     "title": "Publications",
@@ -19,5 +257,383 @@
     "title": "Publications",
     "section": "National peer-reviewed publications",
     "text": "National peer-reviewed publications\n\nVu Hoang Nhi, Khuong Cao Ba, Minh Pham Ngoc, Ngoc Tran Bao, Tuan Nguyen Manh, Hoang Tran The. Willingness and perceptions toward COVID-19 prevention among full-time students in Medical Universities in Vietnam: An online survey. Vietnam Journal of Public Health. 2023 Dec 31. doi: 10.53522/ytcc.vol9.04. ISSN: 1859-1132.\nTran Tuan Anh, Cao Ba Khuong, Pham Thi Ngan, Au Thi Tuyen et al. Risk factors of autism spectrum disorder in children from 24 to 60 months of age in Tuyen Quang. TNU Journal of Science and Technology. 2023;228(09):430-437. Published 2023 Jun 19. [Journal]\nNam HM, Hoang TT, Hanh HTH, Khuong CB, Lan NTP. Willingness to pay for the COVID-19 vaccine available in Vietnam and some factors related. Journal of Medical Researches, Hanoi Medical University. 2023 Mar;163(2):265-274. ISSN: 2354-080X. [Journal]\nKhuong Cao. Knowledge, attitude, and practice regarding COVID-19 prevention among the general population in Quang Trung ward, Thai Nguyen city in 2021. Vietnam Journal of Public Health. 2022 Sep. doi: 10.53522/ttcc.vi60.76515. [Journal]\nLan Thi Phuong Nguyen, Dung Tien Nguyen, Hoang The Tran, Nam Minh Hoang, Hanh Thi Hong Hoa, Khuong Ba Cao, Manh Duc Than, Hoai Thu Nguyen, Huyen Thi Le, Pamela Wright. Acceptance and willingness to pay for COVID-19 vaccines available in Vietnam: an online study during the fourth epidemic wave. MedPharmRes. Published 2022 Jul 21. [Journal]\nAnh Thi Phuong Tran, Khuong Ba Cao, Vinh Hac Van. Antibiotic usage among the elderly in Tan Loi commune, Dong Hy district, Thai Nguyen province, Vietnam. MedPharmRes. 2022;6:3. Published 2022 Feb 08. [Journal]\nBui Thi Thu Huong, Cao Ba Khuong, Tran Thi Mai. Relationship between the total bilirubin and degree of coronary artery disease at Thai Nguyen National hospital. Vietnam Medical Journal. 2021;1. Published 2021 Apr. [Journal]"
+  },
+  {
+    "objectID": "Day_2.html",
+    "href": "Day_2.html",
+    "title": "Hồi quy tuyến tính sử dụng R",
+    "section": "",
+    "text": "PhD Candidate in Health Sciences, University of Groningen, the Netherlands."
+  },
+  {
+    "objectID": "Day_2.html#loading-packages",
+    "href": "Day_2.html#loading-packages",
+    "title": "Hồi quy tuyến tính sử dụng R",
+    "section": "Loading packages",
+    "text": "Loading packages\n\n# Check whether pacman is available and install if needed\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\nif (!requireNamespace(\"pacman\", quietly = TRUE)) install.packages(\"pacman\")\n\n# Use pacman to install (if needed) and load the required packages\npacman::p_load(ggplot2,patchwork)"
+  },
+  {
+    "objectID": "Day_2.html#loading-dataset",
+    "href": "Day_2.html#loading-dataset",
+    "title": "Hồi quy tuyến tính sử dụng R",
+    "section": "Loading dataset",
+    "text": "Loading dataset\nChúng ta có thể load dataset này vào R để phân tích:\n\nnames(epistat2024)\n\n [1] \"v001\"            \"area\"            \"sex\"             \"status\"         \n [5] \"statusage\"       \"year5\"           \"age5\"            \"exactage5\"      \n [9] \"height5\"         \"weight5\"         \"fev5\"            \"vc5\"            \n[13] \"fevpp5\"          \"vcpp5\"           \"threshold5\"      \"fevafter5\"      \n[17] \"slope5\"          \"cough5\"          \"phlegm5\"         \"bronch5\"        \n[21] \"dyspnea5\"        \"wheeze5\"         \"asthma5\"         \"smokhabits5\"    \n[25] \"smoking5\"        \"toteos5\"         \"pets5\"           \"pets_type5\"     \n[29] \"cooking5\"        \"house5\"          \"occup_exposure5\" \"year8\"          \n[33] \"age8\"            \"exactage8\"       \"height8\"         \"weight8\"        \n[37] \"fev8\"            \"vc8\"             \"fevpp8\"          \"vcpp8\"          \n[41] \"threshold8\"      \"fevafter8\"       \"slope8\"          \"cough8\"         \n[45] \"phlegm8\"         \"bronch8\"         \"dyspnea8\"        \"wheeze8\"        \n[49] \"asthma8\"         \"smokhabits8\"     \"smoking8\"        \"toteos8\"        \n[53] \"pets8\"           \"pets_type8\"      \"cooking8\"        \"house8\"         \n[57] \"occup_exposure8\" \"year9\"           \"age9\"            \"exactage9\"      \n[61] \"height9\"         \"weight9\"         \"fev9\"            \"vc9\"            \n[65] \"fevpp9\"          \"vcpp9\"           \"threshold9\"      \"fevafter9\"      \n[69] \"slope9\"          \"cough9\"          \"phlegm9\"         \"bronch9\"        \n[73] \"dyspnea9\"        \"wheeze9\"         \"asthma9\"         \"smokhabits9\"    \n[77] \"smoking9\"        \"toteos9\"         \"ige9\"            \"pets9\"          \n[81] \"pets_type9\"      \"cooking9\"        \"house9\"          \"occup_exposure9\"\n[85] \"wheal1\"          \"wheal2\"          \"wheal3\"          \"wheal4\"         \n[89] \"wheal5\"          \"wheal6\"          \"wheal7\"          \"wheal8\""
+  },
+  {
+    "objectID": "Day_2.html#scatterplot-of-vc-at-visit-9-vc9-and-height-at-visit-9-height9.",
+    "href": "Day_2.html#scatterplot-of-vc-at-visit-9-vc9-and-height-at-visit-9-height9.",
+    "title": "Hồi quy tuyến tính sử dụng R",
+    "section": "scatterplot of VC at visit 9 (VC9) and height at visit 9 (height9).",
+    "text": "scatterplot of VC at visit 9 (VC9) and height at visit 9 (height9).\n\nlibrary(ggplot2)\n\nggplot(epistat2024, aes(x = height9, y = vc9, colour = height9)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", color = \"red\", se = FALSE) + # regression line\n  labs(title = \"Scatterplot of VC vs Height at Visit 9\",\n       x = \"Height at Visit 9\",\n       y = \"VC at Visit 9\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "Day_2.html#calculate-the-correct-correlationcoefficient-pearson-or-spearman.",
+    "href": "Day_2.html#calculate-the-correct-correlationcoefficient-pearson-or-spearman.",
+    "title": "Hồi quy tuyến tính sử dụng R",
+    "section": "Calculate the correct correlationcoefficient (Pearson or Spearman).",
+    "text": "Calculate the correct correlationcoefficient (Pearson or Spearman).\n\n# Perform Pearson correlation test\ncor_test &lt;- cor.test(epistat2024$vc9, epistat2024$height9, method = \"pearson\")\n\n# Extract correlation coefficient\nr &lt;- cor_test$estimate\n\n# % explained variance (R-squared)\nexplained_variance &lt;- r^2 * 100\n\n# Extract p-value\np_value &lt;- cor_test$p.value\n\n# Print results\ncat(\"Pearson correlation r =\", round(r, 3), \"\\n\")\n\nPearson correlation r = 0.787 \n\ncat(\"Explained variance R² =\", round(explained_variance, 2), \"%\\n\")\n\nExplained variance R² = 61.98 %\n\ncat(\"p-value =\", p_value, \"\\n\")\n\np-value = 0 \n\n\n\nr &lt;- cor(epistat2024$vc9, epistat2024$height9, use = \"complete.obs\")\nexplained_variance &lt;- r^2 * 100\n\nggplot(epistat2024, aes(x = height9, y = vc9)) +\n  geom_point(shape = 1, size = 2) +           # hollow circles\n  geom_smooth(method = \"lm\", color = \"red\", se = FALSE) +  # regression line\n  labs(title = paste0(\"VC9 vs Height9 (R² = \", round(explained_variance, 2), \"%)\"),\n       x = \"Height at Visit 9\",\n       y = \"VC at Visit 9\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe correlation coefficient is 0.787 which is ‘strong’. The p-value is 0.000 which is lower than 0.05 and significant. The % explained variance is 0.787^2 = 0.6198. So 61.98% of the variance in VC can be explained by height."
+  },
+  {
+    "objectID": "Day_2.html#estimate-the-effect-of-height9-on-vc9-with-the-help-of-a-linear-regression-analysis",
+    "href": "Day_2.html#estimate-the-effect-of-height9-on-vc9-with-the-help-of-a-linear-regression-analysis",
+    "title": "Hồi quy tuyến tính sử dụng R",
+    "section": "Estimate the effect of height9 on VC9 with the help of a linear regression analysis",
+    "text": "Estimate the effect of height9 on VC9 with the help of a linear regression analysis\n\n# Linear regression: VC9 ~ height9\nmodel &lt;- lm(vc9 ~ height9, data = epistat2024)\nresiduals_model &lt;- residuals(model)\nfitted_model &lt;- fitted(model)\nsummary(model)\n\n\nCall:\nlm(formula = vc9 ~ height9, data = epistat2024)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-229.320  -38.345    0.049   38.819  271.221 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -1024.7299    22.3942  -45.76   &lt;2e-16 ***\nheight9         8.2787     0.1312   63.12   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 60 on 2444 degrees of freedom\n  (1757 observations deleted due to missingness)\nMultiple R-squared:  0.6198,    Adjusted R-squared:  0.6196 \nF-statistic:  3984 on 1 and 2444 DF,  p-value: &lt; 2.2e-16\n\n\n\n# 95% confidence intervals\nconfint(model, level = 0.95)\n\n                   2.5 %      97.5 %\n(Intercept) -1068.643537 -980.816275\nheight9         8.021501    8.535889\n\n\n\n\n\n\n\n\nNote\n\n\n\nMagnitude of height on VC: This is actually the regression coefficient. So 8.279. For each cm higher height the VC is predicted to be 8.279 cl higher The effect has a p-value of 0.000 and is thus significantly different from 0. The 95% CI can be calculated by 8.279 ± 1.96 * 0.131. The 95% CI is 8.022 - 8.536"
+  },
+  {
+    "objectID": "Descriptive statistics.html",
+    "href": "Descriptive statistics.html",
+    "title": "Phân tích mô tả sử dụng R",
+    "section": "",
+    "text": "Ba Khuong Cao\n\n\nPhD Candidate in Health Sciences, University of Groningen, the Netherlands.\n\n\ncaobakhuongytcc@gmail.com\n\n\n\n\n\n\n\n\n\nImportantƯu điểm khi sử dụng R để phân tích mô tả\n\n\n\n\nGiảm thiểu sai sót, tiết kiệm thời gian: Kết quả phân tích được xuất trực tiếp thành bảng, sẵn sàng đưa vào bài báo hoặc luận văn mà không cần chỉnh sửa thủ công.\nTự động hóa hoàn toàn: Không cần phân tích từng biến rồi sao chép kết quả vào bảng — tất cả được thực hiện chỉ với vài dòng lệnh.\n\n\n\n\n\n\n\n\n\n\nNoteQuy trình thực hiện\n\n\n\n\nTìm hiểu bộ số liệu (mô tả tổng quan)\nCài đặt và nạp các gói cần thiết\nNạp bộ số liệu vào R\nMã hóa và chuẩn bị dữ liệu\nPhân tích thống kê mô tả và xuất kết quả ra file Word (.docx)\n\n\n\n\n1. Tổng quan bộ số liệu\nBộ số liệu được sử dụng trong phần phân tích này được công bố công khai trên tạp chí PLOS ONE (Xem bài báo), nghiên cứu về tỷ lệ nhiễm HIV trong nhóm phụ nữ hành nghề mại dâm.Bộ số liệu được đính kèm cùng bài báo. Phần phân tích này sử dụng file data_file_Table_1.csv. Mô tả chi tiết các biến số (theo bài báo gốc) được trình bày trong bảng dưới đây:\n\n\n\n\n\n\n\n\nVariable name (Tên biến)\nVariable description (Mô tả)\nCodes (Mã hóa)\n\n\n\n\nunique\nSubject identification number\nNumeric\n\n\nq103\nNationality\n1 = Benin, 2 = Ghana, 3 = Nigeria, 4 = Togo, 5 = Others\n\n\nage\nAge in years\nNumeric\n\n\nage_3cat\nAge in years (categories)\n1 = 18–24; 2 = 25–34; 3 = ≥ 35\n\n\nq105\nEducation\n0 = Not educated; 1 = Primary; 2 = Secondary; 3 = Postsecondary, university\n\n\nq114\nMarital status\n1 = Married; 2 = Single; 3 = Divorced; 4 = Widowed\n\n\nq107\nPlace of work\n1 = Brothel; 2 = Home; 3 = Bars; 4 = Hotels; 5 = Street; 6 = Nightclub; 7 = Others\n\n\nduree\nDuration in sex work (months)\nNumeric\n\n\nq205\nNumber of clients (last 7 days of work)\nNumeric\n\n\nq219\nNumber of sexual intercourses (last 3 days)\nNumeric\n\n\nconstante\nConsistent condom use with clients (last 7 days of work)\n1 = Yes; 2 = No\n\n\nq211\nCondom use with last client\n1 = Yes; 2 = No\n\n\ngroupe\nHIV/treatment status\n1 = HIV positive, treated; 2 = HIV positive, not treated; 3 = HIV negative\n\n\nanal\nEver had anal sex (any partner)\n1 = No; 2 = Yes\n\n\nhla9\nEver had oral sex (any partner)\n1 = Yes; 2 = No\n\n\ngono\nNG prevalence\n1 = Positive; 2 = Negative; 9 = No answer\n\n\nchlam\nCT prevalence\n1 = Positive; 2 = Negative; 9 = No answer\n\n\ngonochlam\nNG/CT prevalence\n1 = Positive; 2 = Negative; 9 = No answer\n\n\ncd4_nb\nCD4 cell count/mm³\nNumeric\n\n\ncharge_virale_copies\nViral load\nNumeric\n\n\n\n\n\n2. Cài đặt và nạp gói (Packages)\nPhân tích này sử dụng các gói sau: gmodels, dplyr, psych, gtsummary, readxl, readr, finalfit, flextable.\n\n# Check whether pacman is available and install if needed\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\nif (!requireNamespace(\"pacman\", quietly = TRUE)) install.packages(\"pacman\")\n\n# Use pacman to install (if needed) and load the required packages\npacman::p_load(gmodels, dplyr, psych, gtsummary, readxl,readr,finalfit,flextable)\n\n\n\n3. Nạp bộ số liệu\nNạp bộ số liệu vào R bằng các lệnh sau:\n\n# Read CSV \nhiv_tab_1_data &lt;- read_csv(file.path(data_folder, \"data_file_Table_1.csv\"))\n\n# Inspect the structure of the dataset\nstr(hiv_tab_1_data)\n\nspc_tbl_ [319 × 20] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ unique              : chr [1:319] \"D001T\" \"D002T\" \"D003T\" \"D004T\" ...\n $ q103                : num [1:319] 2 1 4 2 4 2 2 3 1 4 ...\n $ age                 : num [1:319] 47 51 42 44 49 45 51 25 44 44 ...\n $ age_3cat            : num [1:319] 3 3 3 3 3 3 3 2 3 3 ...\n $ q105                : num [1:319] 1 1 0 1 0 1 0 1 0 1 ...\n $ q114                : num [1:319] 3 3 2 4 3 2 2 2 2 2 ...\n $ q107                : num [1:319] 5 5 1 1 5 1 1 1 2 1 ...\n $ duree               : num [1:319] 48 180 60 36 24 60 180 72 48 120 ...\n $ q205                : num [1:319] 19 32 72 35 54 11 27 13 1 19 ...\n $ q219                : num [1:319] 12 14 38 14 28 9 13 9 0 13 ...\n $ constante           : num [1:319] 1 2 1 1 1 2 1 1 1 1 ...\n $ q211                : num [1:319] 1 1 1 1 1 1 1 1 1 1 ...\n $ groupe              : num [1:319] 1 1 1 1 1 1 1 1 1 1 ...\n $ anal                : num [1:319] 1 1 1 1 1 1 1 1 1 1 ...\n $ hla9                : num [1:319] 2 2 2 2 2 2 2 2 2 2 ...\n $ gono                : num [1:319] 1 2 2 1 2 2 2 2 2 2 ...\n $ chlam               : num [1:319] 2 2 2 2 2 2 2 2 2 2 ...\n $ gonochlam           : num [1:319] 1 2 2 1 2 2 2 2 2 2 ...\n $ cd4_nb              : num [1:319] 219 297 191 464 525 145 263 710 734 280 ...\n $ charge_virale_copies: num [1:319] 50 50 1683 848 50 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   unique = col_character(),\n  ..   q103 = col_double(),\n  ..   age = col_double(),\n  ..   age_3cat = col_double(),\n  ..   q105 = col_double(),\n  ..   q114 = col_double(),\n  ..   q107 = col_double(),\n  ..   duree = col_double(),\n  ..   q205 = col_double(),\n  ..   q219 = col_double(),\n  ..   constante = col_double(),\n  ..   q211 = col_double(),\n  ..   groupe = col_double(),\n  ..   anal = col_double(),\n  ..   hla9 = col_double(),\n  ..   gono = col_double(),\n  ..   chlam = col_double(),\n  ..   gonochlam = col_double(),\n  ..   cd4_nb = col_double(),\n  ..   charge_virale_copies = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\n\n\n\n\n\n\nNoteLưu ý\n\n\n\nHầu hết các biến trong bộ số liệu đều ở dạng numeric (num), ngoại trừ biến unique. Để phù hợp với bảng mô tả biến của bài báo gốc, một số biến cần được chuyển sang dạng factor (biến phân loại).\n\n\n\n\n4. Mã hóa và chuẩn bị dữ liệu\n\nChuyển một số biến sang dạng factor\n\n# Convert to factors ----\nfactor_vars &lt;- c(\n  \"q103\", \"age_3cat\", \"q105\", \"q114\", \"q107\",\n  \"constante\", \"q211\", \"groupe\", \"anal\", \"hla9\",\n  \"gono\", \"chlam\", \"gonochlam\")\n\nhiv_tab_1_data[factor_vars] &lt;- lapply(hiv_tab_1_data[factor_vars], as.factor)\n\n\n\nGán nhãn giá trị\nGán nhãn giá trị cho các biến (theo bảng mô tả các biến ở trên)\n\n#Labeling for values of variables ----\nlevels(hiv_tab_1_data$q103)=c(\"Benin\",\"Ghana\",\"Nigeria\", \"Togo\", \"Others\")\nlevels(hiv_tab_1_data$age_3cat)=c(\"18 - 24\",\"25 - 34\",\"&gt;=35\")\nlevels(hiv_tab_1_data$q105)=c(\"Not educated\",\"Primary\",\"Secondary\",\n                              \"Postsecondary, university\")\nlevels(hiv_tab_1_data$q114)=c(\"Married\",\"Single\",\"Divorced\", \"Widowed\")\nlevels(hiv_tab_1_data$q107)=c(\"Brothel\",\"Home\",\"Bars\", \"Hotels\",\"Street\",\n                              \"Nightclub\",\"Others\")\nlevels(hiv_tab_1_data$constante)=c(\"Yes\",\"No\")\nlevels(hiv_tab_1_data$q211)=c(\"Yes\",\"No\")\nlevels(hiv_tab_1_data$groupe)=c(\"HIV positive, treated\",\n                                \"HIV positive, not treated\", \"HIV negative\")\nlevels(hiv_tab_1_data$anal)=c(\"No\",\"Yes\")\nlevels(hiv_tab_1_data$hla9)=c(\"Yes\",\"No\")\nlevels(hiv_tab_1_data$gono)=c(\"Positive\",\"Negative\", \"No answer\")\nlevels(hiv_tab_1_data$chlam)=c(\"Positive\",\"Negative\", \"No answer\")\nlevels(hiv_tab_1_data$gonochlam)=c(\"Positive\",\"Negative\", \"No answer\")\n\n\n\n\n5. Phân tích kết quả và xuất file\nĐể tạo Bảng 1 như trong bài báo gốc, thực hiện các lệnh sau:\n\n#Table 1. Baseline characteristics  ----\ndes_table1 &lt;- hiv_tab_1_data |&gt;\n  tbl_summary(\n    include = c(q103, age, age_3cat, q105, q114, q107, duree, q205, q219,\n                constante, q211, groupe, anal, hla9, gono, chlam, gonochlam,\n                cd4_nb, charge_virale_copies),\n    type = list(\n      all_continuous() ~ \"continuous2\"\n    ),\n    statistic = all_continuous() ~ c(\"{median} ({p25}, {p75})\"),\n    percent = \"column\",\n    label = list(\n      q103 ~ \"Nationality\",\n      age ~ \"Age in years\",\n      age_3cat ~ \"Age in years (categories)\",\n      q105 ~ \"Education\",\n      q114 ~ \"Marital status\",\n      q107 ~ \"Place of work\",\n      duree ~ \"Duration in sex work, months\",\n      q205 ~ \"Number of clients, last 7 days of work\",\n      q219 ~ \"Number of sexual intercourses, last 3 days\",\n      constante ~ \"Consistent condom use with clients (last 7 days of work)\",\n      q211 ~ \"Condom use with last client\",\n      groupe ~ \"HIV/treatment status\",\n      anal ~ \"Ever had anal sex (any partner)\",\n      hla9 ~ \"Ever had oral sex (any partner)\",\n      gono ~ \"NG prevalence\",\n      chlam ~ \"CT prevalence\",\n      gonochlam ~ \"NG/CT prevalence\",\n      cd4_nb ~ \"CD4 cell count/mm³\",\n      charge_virale_copies ~ \"Viral load\"\n    ),\n    digits = list(\n      all_continuous() ~ 2,\n      all_categorical() ~ 1\n    ),\n    missing = \"no\"\n  ) %&gt;%\n  modify_header(label = \"**Variable**\") |&gt;         # change label column header\n  modify_caption(\"**Table 1. Baseline characteristics of 319 female sex workers,\n                 Cotonou, Benin, 2008–2012**\")   # add table name/title\ndes_table1\n\n\n\n\n\nTable 1. Baseline characteristics of 319 female sex workers, Cotonou, Benin, 2008–2012\n\n\n\n\n\n\nVariable\nN = 3191\n\n\n\n\nNationality\n\n\n\n\n    Benin\n123.0 (38.6%)\n\n\n    Ghana\n49.0 (15.4%)\n\n\n    Nigeria\n66.0 (20.7%)\n\n\n    Togo\n74.0 (23.2%)\n\n\n    Others\n7.0 (2.2%)\n\n\nAge in years\n\n\n\n\n    Median (Q1, Q3)\n34.00 (27.00, 41.00)\n\n\nAge in years (categories)\n\n\n\n\n    18 - 24\n48.0 (15.0%)\n\n\n    25 - 34\n112.0 (35.1%)\n\n\n    &gt;=35\n159.0 (49.8%)\n\n\nEducation\n\n\n\n\n    Not educated\n107.0 (33.5%)\n\n\n    Primary\n126.0 (39.5%)\n\n\n    Secondary\n79.0 (24.8%)\n\n\n    Postsecondary, university\n7.0 (2.2%)\n\n\nMarital status\n\n\n\n\n    Married\n21.0 (6.6%)\n\n\n    Single\n102.0 (32.0%)\n\n\n    Divorced\n149.0 (46.7%)\n\n\n    Widowed\n47.0 (14.7%)\n\n\nPlace of work\n\n\n\n\n    Brothel\n126.0 (39.6%)\n\n\n    Home\n24.0 (7.5%)\n\n\n    Bars\n37.0 (11.6%)\n\n\n    Hotels\n40.0 (12.6%)\n\n\n    Street\n76.0 (23.9%)\n\n\n    Nightclub\n6.0 (1.9%)\n\n\n    Others\n9.0 (2.8%)\n\n\nDuration in sex work, months\n\n\n\n\n    Median (Q1, Q3)\n36.00 (16.00, 60.00)\n\n\nNumber of clients, last 7 days of work\n\n\n\n\n    Median (Q1, Q3)\n13.00 (5.00, 26.00)\n\n\nNumber of sexual intercourses, last 3 days\n\n\n\n\n    Median (Q1, Q3)\n5.00 (1.00, 11.00)\n\n\nConsistent condom use with clients (last 7 days of work)\n246.0 (77.1%)\n\n\nCondom use with last client\n279.0 (87.5%)\n\n\nHIV/treatment status\n\n\n\n\n    HIV positive, treated\n49.0 (15.4%)\n\n\n    HIV positive, not treated\n82.0 (25.7%)\n\n\n    HIV negative\n188.0 (58.9%)\n\n\nEver had anal sex (any partner)\n16.0 (5.0%)\n\n\nEver had oral sex (any partner)\n62.0 (19.4%)\n\n\nNG prevalence\n\n\n\n\n    Positive\n13.0 (4.1%)\n\n\n    Negative\n301.0 (94.4%)\n\n\n    No answer\n5.0 (1.6%)\n\n\nCT prevalence\n\n\n\n\n    Positive\n9.0 (2.8%)\n\n\n    Negative\n305.0 (95.6%)\n\n\n    No answer\n5.0 (1.6%)\n\n\nNG/CT prevalence\n\n\n\n\n    Positive\n21.0 (6.6%)\n\n\n    Negative\n293.0 (91.8%)\n\n\n    No answer\n5.0 (1.6%)\n\n\nCD4 cell count/mm³\n\n\n\n\n    Median (Q1, Q3)\n389.00 (214.50, 583.00)\n\n\nViral load\n\n\n\n\n    Median (Q1, Q3)\n8,153.00 (154.00, 31,321.00)\n\n\n\n1 n (%)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteXuất bảng kết quả ra file Word\n\n\n\n\ndes_table1 |&gt;\n as_flex_table() |&gt;\n save_as_docx(path = \"Table 1. Baseline characteristics.docx\")"
+  },
+  {
+    "objectID": "Statistics in practice.html",
+    "href": "Statistics in practice.html",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "",
+    "text": "Nghiên cứu sinh Khoa học Sức khỏe, Đại học Groningen, Hà Lan.\n\n\ncaobakhuongytcc@gmail.com"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-1-introduction-to-r-and-rstudio",
+    "href": "Statistics in practice.html#day-1-introduction-to-r-and-rstudio",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.1 Day 1: Introduction to R and RStudio",
+    "text": "1.1 Day 1: Introduction to R and RStudio"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-2-data-types-and-structures-in-r",
+    "href": "Statistics in practice.html#day-2-data-types-and-structures-in-r",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.2 Day 2: Data types and structures in R",
+    "text": "1.2 Day 2: Data types and structures in R"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-3-data-manipulation-with-dplyr",
+    "href": "Statistics in practice.html#day-3-data-manipulation-with-dplyr",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.3 Day 3: Data manipulation with dplyr",
+    "text": "1.3 Day 3: Data manipulation with dplyr"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-4-data-visualization-with-ggplot2",
+    "href": "Statistics in practice.html#day-4-data-visualization-with-ggplot2",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.4 Day 4: Data visualization with ggplot2",
+    "text": "1.4 Day 4: Data visualization with ggplot2"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-5-statistical-analysis-with-r",
+    "href": "Statistics in practice.html#day-5-statistical-analysis-with-r",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.5 Day 5: Statistical analysis with R",
+    "text": "1.5 Day 5: Statistical analysis with R"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-6-reproducible-research-with-r-markdown",
+    "href": "Statistics in practice.html#day-6-reproducible-research-with-r-markdown",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.6 Day 6: Reproducible research with R Markdown",
+    "text": "1.6 Day 6: Reproducible research with R Markdown"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-7-advanced-data-manipulation-with-tidyr",
+    "href": "Statistics in practice.html#day-7-advanced-data-manipulation-with-tidyr",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.7 Day 7: Advanced data manipulation with tidyr",
+    "text": "1.7 Day 7: Advanced data manipulation with tidyr"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-8-advanced-data-visualization-with-ggplot2",
+    "href": "Statistics in practice.html#day-8-advanced-data-visualization-with-ggplot2",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.8 Day 8: Advanced data visualization with ggplot2",
+    "text": "1.8 Day 8: Advanced data visualization with ggplot2"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-9-statistical-modeling-with-r",
+    "href": "Statistics in practice.html#day-9-statistical-modeling-with-r",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.9 Day 9: Statistical modeling with R",
+    "text": "1.9 Day 9: Statistical modeling with R"
+  },
+  {
+    "objectID": "Statistics in practice.html#day-10-best-practices-for-r-programming",
+    "href": "Statistics in practice.html#day-10-best-practices-for-r-programming",
+    "title": "Thống kê Y sinh học sử dụng R",
+    "section": "1.10 Day 10: Best practices for R programming",
+    "text": "1.10 Day 10: Best practices for R programming\n\nPhân tích mô tả"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "",
+    "text": "Nghiên cứu sinh Khoa học Sức khỏe, Đại học Groningen, Hà Lan.\n    caobakhuongytcc@gmail.com"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-1-gán-giá-trị-vào-phần-tử-của-vector",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-1-gán-giá-trị-vào-phần-tử-của-vector",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 1 – Gán giá trị vào phần tử của vector",
+    "text": "Bài tập 1 – Gán giá trị vào phần tử của vector\nTạo vector x &lt;- c(8, 1.4, 3, -5.4, 2.2). Lệnh y &lt;- 2; x[y] &lt;- -1.7 thực hiện điều gì?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\ny là một số nguyên. Trong R, x[y] nghĩa là lấy phần tử ở vị trí y của vector x. Thử hỏi: nếu y = 2, thì x[2] là phần tử nào?\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\ny = 2, nên x[y] tức là x[2] — phần tử thứ hai. Lệnh này thay giá trị 1.4 bằng -1.7.\n\nx &lt;- c(8, 1.4, 3, -5.4, 2.2)\ny &lt;- 2\nx[y] &lt;- -1.7\nx\n\n[1]  8.0 -1.7  3.0 -5.4  2.2"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-2-trích-xuất-phần-tử-theo-chỉ-số",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-2-trích-xuất-phần-tử-theo-chỉ-số",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 2 – Trích xuất phần tử theo chỉ số",
+    "text": "Bài tập 2 – Trích xuất phần tử theo chỉ số\nLệnh x[-1], x[c(1,2)], và x[c(1,1,2,2)] làm gì? x có bị thay đổi không?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\n\nDấu - trước chỉ số có nghĩa là loại trừ phần tử đó.\nBạn có thể đặt nhiều chỉ số trong c() để lấy nhiều phần tử cùng lúc — kể cả lấy trùng.\nCâu hỏi quan trọng: những lệnh này có gán lại (&lt;-) vào x không?\n\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\n\n\n\n\n\n\n\nLệnh\nKết quả\nGiải thích\n\n\n\n\nx[-1]\n-1.7, 3, -5.4, 2.2\nBỏ phần tử đầu tiên\n\n\nx[c(1,2)]\n8, -1.7\nLấy phần tử 1 và 2\n\n\nx[c(1,1,2,2)]\n8, 8, -1.7, -1.7\nLấy phần tử 1 và 2, mỗi cái lặp 2 lần\n\n\n\nx không thay đổi vì các lệnh trên chỉ đọc giá trị, không gán lại.\n\nx[-1]\n\n[1] -1.7  3.0 -5.4  2.2\n\nx[c(1,2)]\n\n[1]  8.0 -1.7\n\nx[c(1,1,2,2)]\n\n[1]  8.0  8.0 -1.7 -1.7\n\nx  # x vẫn giữ nguyên\n\n[1]  8.0 -1.7  3.0 -5.4  2.2"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-3-tạo-dãy-số",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-3-tạo-dãy-số",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 3 – Tạo dãy số",
+    "text": "Bài tập 3 – Tạo dãy số\nTạo vector 1, 2, 3, 4, 5, 10, 9, 8, 7, 6 theo cách hiệu quả.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nNhìn vào dãy số: nửa đầu tăng dần, nửa sau giảm dần. Dùng toán tử : để tạo từng nửa, rồi ghép bằng c().\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nNửa đầu là dãy tăng 1:5, nửa sau là dãy giảm 10:6.\n\nc(1:5, 10:6)\n\n [1]  1  2  3  4  5 10  9  8  7  6"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-4-dùng-rep-tạo-vector",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-4-dùng-rep-tạo-vector",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 4 – Dùng rep() tạo vector",
+    "text": "Bài tập 4 – Dùng rep() tạo vector\nTạo vector c(1, 1, 1, 2, 2).\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nrep(value, n) lặp một giá trị n lần. Tạo riêng phần 1,1,1 và 2,2, rồi ghép lại bằng c().\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nDùng rep() để lặp từng giá trị, rồi ghép lại.\n\nc(rep(1, 3), rep(2, 2))\n\n[1] 1 1 1 2 2"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-5-recycling-tái-sử-dụng-vector-ngắn-hơn",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-5-recycling-tái-sử-dụng-vector-ngắn-hơn",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 5 – Recycling (tái sử dụng vector ngắn hơn)",
+    "text": "Bài tập 5 – Recycling (tái sử dụng vector ngắn hơn)\nBạn nhận được cảnh báo gì với lệnh c(1:10) - c(1:3)?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nChạy thử lệnh trong console. Chú ý: vector dài có 10 phần tử, vector ngắn có 3 phần tử. Kiểm tra xem 10 có chia hết cho 3 không — đây là điều kiện R dùng để quyết định có cảnh báo hay không.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nR báo:\nlonger object length is not a multiple of shorter object length\nLý do: vector dài (10 phần tử) không phải bội số của vector ngắn (3 phần tử). R vẫn tính nhưng lặp lại vector ngắn từ đầu:\n\n# Minh họa cách R \"tái sử dụng\" vector ngắn hơn:\nc(1:10) - c(1:3)   # cảnh báo: 10 không chia hết cho 3\n\nWarning in c(1:10) - c(1:3): longer object length is not a multiple of shorter\nobject length\n\n\n [1] 0 0 0 3 3 3 6 6 6 9\n\nc(1:10) - c(1:2)   # không cảnh báo: 10 chia hết cho 2\n\n [1] 0 0 2 2 4 4 6 6 8 8\n\n\n\n\n\n\n\n\nTipMẹo thực tế\n\n\n\nKhi hai vector có độ dài khác nhau, R luôn đưa ra cảnh báo nếu độ dài không chia hết. Hãy luôn đọc cảnh báo — R vẫn cho kết quả nhưng kết quả có thể không như ý!"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-6-toán-tử-logic",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-6-toán-tử-logic",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 6 – Toán tử logic",
+    "text": "Bài tập 6 – Toán tử logic\nCác toán tử &, | và ! có nghĩa là gì?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nThử trong console: TRUE & FALSE, TRUE | FALSE, !TRUE. Ba toán tử này là nền tảng của mọi phép lọc dữ liệu trong R.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\n\n\n\n\n\n\n\nToán tử\nÝ nghĩa\nVí dụ\n\n\n\n\n&\nVÀ – cả hai điều kiện phải đúng\nTRUE & FALSE → FALSE\n\n\n\\|\nHOẶC – ít nhất một điều kiện đúng\nTRUE \\| FALSE → TRUE\n\n\n!\nPHỦ ĐỊNH – đảo ngược kết quả\n!TRUE → FALSE"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-7-lọc-vector-bằng-điều-kiện-logic",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-7-lọc-vector-bằng-điều-kiện-logic",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 7 – Lọc vector bằng điều kiện logic",
+    "text": "Bài tập 7 – Lọc vector bằng điều kiện logic\nKiểm tra kết quả của x[x==3] và x[c1].\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nx[điều_kiện] lọc ra các phần tử thỏa mãn điều kiện. c1 là vector logic TRUE/FALSE — R lấy phần tử ở vị trí TRUE. Xem c1 gồm những gì trước khi phân tích kết quả.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nx[x==3]: lấy tất cả phần tử bằng 3. Nếu chỉ có một giá trị 3 trong x, kết quả là 3.\nx[c1] với c1 là vector xen kẽ TRUE/FALSE: lấy phần tử ở vị trí TRUE (vị trí 1, 3, 5, 7, 9), cho kết quả 0, 2, 4, 6, 8."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-8-hàm-which",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-8-hàm-which",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 8 – Hàm which()",
+    "text": "Bài tập 8 – Hàm which()\nKết quả của which(x==7) và x[which(x==7)] là gì?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nwhich() không trả về giá trị mà trả về vị trí (chỉ số) của phần tử thỏa điều kiện. Bước 1: which(x==7) cho ra số gì? Bước 2: Dùng số đó làm chỉ số để truy cập x[...].\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nwhich(x==7) → 8 (phần tử thứ 8 bằng 7)\nx[which(x==7)] → 7 (lấy phần tử ở vị trí đó)\n\n\n\n\n\n\n\nNoteSo sánh hai cách lọc\n\n\n\nx[x==7] dùng vector logic (TRUE/FALSE); x[which(x==7)] dùng chỉ số. Kết quả giống nhau nhưng cách hoạt động khác nhau. Với dữ liệu lớn, which() thường nhanh hơn."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-9-lấy-phần-tử-theo-vị-trí",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-9-lấy-phần-tử-theo-vị-trí",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 9 – Lấy phần tử theo vị trí",
+    "text": "Bài tập 9 – Lấy phần tử theo vị trí\nLấy phần tử thứ 4 của x.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nDùng cú pháp x[chỉ_số] để lấy phần tử theo vị trí. Trong R, vị trí bắt đầu từ 1 (không phải 0).\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nx[4]"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-10-lọc-theo-điều-kiện",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-10-lọc-theo-điều-kiện",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 10 – Lọc theo điều kiện",
+    "text": "Bài tập 10 – Lọc theo điều kiện\nLấy các phần tử lớn hơn hoặc bằng 4.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nDùng toán tử &gt;= bên trong x[...]. Kết hợp với which() cũng cho kết quả tương đương.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nx[x &gt;= 4]\n# Cách khác (tương đương):\nx[which(x &gt;= 4)]"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-11-kết-hợp-hai-điều-kiện-và",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-11-kết-hợp-hai-điều-kiện-và",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 11 – Kết hợp hai điều kiện (VÀ)",
+    "text": "Bài tập 11 – Kết hợp hai điều kiện (VÀ)\nTạo 1:10, lấy các phần tử lớn hơn 4 và nhỏ hơn 8.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nKết hợp hai điều kiện bằng toán tử & (VÀ). Cả hai phải cùng đúng: đk1 & đk2.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\na &lt;- c(1:10)\na[a &gt; 4 & a &lt; 8]\n\n[1] 5 6 7"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-12-kết-hợp-hai-điều-kiện-hoặc",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-12-kết-hợp-hai-điều-kiện-hoặc",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 12 – Kết hợp hai điều kiện (HOẶC)",
+    "text": "Bài tập 12 – Kết hợp hai điều kiện (HOẶC)\nTạo 1:10, lấy các phần tử nhỏ hơn 3 hoặc lớn hơn 6.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nKết hợp hai điều kiện bằng toán tử | (HOẶC). Chỉ cần một trong hai điều kiện đúng là phần tử được chọn.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\na &lt;- c(1:10)\na[a &lt; 3 | a &gt; 6]\n\n[1]  1  2  7  8  9 10"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-13-thay-đổi-độ-dài-vector",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-13-thay-đổi-độ-dài-vector",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 13 – Thay đổi độ dài vector",
+    "text": "Bài tập 13 – Thay đổi độ dài vector\nLấy 7 phần tử đầu của x, rồi mở rộng thành 15 phần tử. Các phần tử 8–15 có giá trị gì?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nGán trực tiếp cho length(x) để cắt ngắn hoặc mở rộng vector. Khi mở rộng, R cần đây thêm vào các ô trống — giá trị mặc định là gì?\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nRút gọn bằng length(x) &lt;- 7, rồi mở rộng bằng length(x) &lt;- 15. Các phần tử mới tự động nhận giá trị NA (giá trị khuyết).\n\n\n\n\n\n\nTipGhi nhớ\n\n\n\nKhi mở rộng vector trong R, các ô trống luôn được điền bằng NA (Not Available = giá trị khuyết). Đây là cách R báo hiệu “không có dữ liệu”."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-14-phát-hiện-giá-trị-khuyết-na",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-14-phát-hiện-giá-trị-khuyết-na",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 14 – Phát hiện giá trị khuyết (NA)",
+    "text": "Bài tập 14 – Phát hiện giá trị khuyết (NA)\nTạo c(3, 4, 5, NA, 7, 8, 9). Tìm vị trí phần tử bị khuyết.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nKhông dùng x == NA được trong R (luôn cho NA). Dùng hàm chuyên biệt is.na() để kiểm tra. Kết hợp với which() để lấy vị trí.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nDùng is.na() để kiểm tra, which() để lấy vị trí.\n\nx &lt;- c(3, 4, 5, NA, 7, 8, 9)\nwhich(is.na(x))   # kết quả: 4 (phần tử thứ 4 là NA)\n\n[1] 4"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-15-16-thay-giá-trị-bằng-na",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-15-16-thay-giá-trị-bằng-na",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 15 & 16 – Thay giá trị bằng NA",
+    "text": "Bài tập 15 & 16 – Thay giá trị bằng NA\nBài 15: Tạo c(2, 4, 6, …, 20). Thay giá trị 12 bằng NA.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\n\nBài 15: Dùng seq() tạo dãy chẵn 2–20. Sau đó gán NA cho phần tử nào bằng 12: x[x == 12] &lt;- NA.\nBài 16: Tương tự, nhưng dùng điều kiện &gt; 15 thay vì == 12.\n\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nBài 15:\n\nb &lt;- seq(2, 20, 2)\nb[b == 12] &lt;- NA\nb\n\n [1]  2  4  6  8 10 NA 14 16 18 20\n\n\nBài 16: Tạo lại vector, đặt mọi giá trị lớn hơn 15 thành NA.\n\nb2 &lt;- seq(2, 20, 2)\nb2[b2 &gt; 15] &lt;- NA\nb2\n\n [1]  2  4  6  8 10 12 14 NA NA NA"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-17-ghép-chuỗi-với-paste",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-17-ghép-chuỗi-với-paste",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 17 – Ghép chuỗi với paste()",
+    "text": "Bài tập 17 – Ghép chuỗi với paste()\n\ns1 &lt;- c(\"Morning\", \"Afternoon\", \"Evening\", \"Night\")\ns2 &lt;- c(\"coffee\", \"tea\")\ns3 &lt;- c(\"apple\", \"banana\", \"pear\")\npaste(s1, s2)\n\n[1] \"Morning coffee\" \"Afternoon tea\"  \"Evening coffee\" \"Night tea\"     \n\npaste(s1, s3)\n\n[1] \"Morning apple\"    \"Afternoon banana\" \"Evening pear\"     \"Night apple\"     \n\npaste(s2, s3)\n\n[1] \"coffee apple\" \"tea banana\"   \"coffee pear\" \n\n\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nĐếm số phần tử mỗi vector: s1 có 4, s2 có 2, s3 có 3. Khi hai vector không đều dài, R tái sử dụng (recycle) vector ngắn hơn. Hãy theo dõi số lần lặp để dự đoán kết quả.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\npaste(s1, s2): s1 có 4 phần tử, s2 có 2 → s2 được lặp lại: \"Morning coffee\", \"Afternoon tea\", \"Evening coffee\", \"Night tea\".\npaste(s1, s3): s3 có 3 phần tử, \"apple\" được dùng lại lần cuối: \"Night apple\".\npaste(s2, s3): \"coffee\" được dùng lại: \"coffee apple\", \"tea banana\", \"coffee pear\"."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-18-dùng-paste0-tạo-tên-ngày",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-18-dùng-paste0-tạo-tên-ngày",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 18 – Dùng paste0() tạo tên ngày",
+    "text": "Bài tập 18 – Dùng paste0() tạo tên ngày\nTạo c(\"Monday\", \"Tuesday\", \"Wednesday\") dùng paste0().\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nNhận ra phần chung và phần riêng trong mỗi tên ngày. Phần chung được ghép tiếp theo sau phần riêng bằng paste0() (không có khoảng trắng).\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nNhận ra phần chung là \"day\", phần riêng là tiền tố của mỗi ngày.\n\npaste0(c(\"Mon\", \"Tues\", \"Wednes\"), \"day\")\n\n[1] \"Monday\"    \"Tuesday\"   \"Wednesday\"\n\n\n\n\n\n\n\n\nTippaste() vs paste0()\n\n\n\npaste0() giống paste() nhưng không có khoảng trắng giữa các phần ghép (sep = \"\"). Dùng paste0() khi muốn ghép sát nhau (như tạo tên file, mã code…)."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-19-so-sánh-character-và-factor",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-19-so-sánh-character-và-factor",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 19 – So sánh character và factor",
+    "text": "Bài tập 19 – So sánh character và factor\nThử print(s) và print(f). Sự khác biệt là gì?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nChạy cả hai lệnh trong console. Đọc kỹ output: có dòng nào xuất hiện trong kết quả của f mà không có trong s không?\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\ns là character: chỉ hiển thị giá trị văn bản, không có Levels.\nf là factor: hiển thị thêm dòng Levels: females males — tương tự “value labels” trong SPSS."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-20-tạo-factor-với-thứ-tự-mức-tùy-chỉnh",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-20-tạo-factor-với-thứ-tự-mức-tùy-chỉnh",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 20 – Tạo factor với thứ tự mức tùy chỉnh",
+    "text": "Bài tập 20 – Tạo factor với thứ tự mức tùy chỉnh\nChuyển s thành factor với 'male' là mức đầu tiên, đổi nhãn thành 'M' và 'F'.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nHàm factor() có hai đối số hay dùng: levels kiểm soát thứ tự các mức, labels kiểm soát tên hiển thị. Thứ tự trong labels phải khớp với thứ tự trong levels.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\n# Chỉ thay đổi thứ tự mức:\nfactor(s, levels = c(\"male\", \"female\"))\n\n# Đổi nhãn (female → F, male → M theo thứ tự alphabetical mặc định):\nfactor(s, labels = c(\"F\", \"M\"))\n\n# Vừa đổi thứ tự vừa đổi nhãn:\nfactor(s, levels = c(\"male\", \"female\"), labels = c(\"M\", \"F\"))"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-21-factor-có-thứ-tự-ordered-factor",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-21-factor-có-thứ-tự-ordered-factor",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 21 – Factor có thứ tự (ordered factor)",
+    "text": "Bài tập 21 – Factor có thứ tự (ordered factor)\nChuyển t thành ordered factor.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nThêm đối số ordered = TRUE vào factor(). Đối số levels xác định thứ tự tăng dần của các mức (từ nhỏ đến lớn).\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nfactor(t, levels = c(\"lean\", \"normal\", \"overweight\"), ordered = TRUE)\n# Kết quả: lean &lt; normal &lt; overweight"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-22-dùng-cut-tạo-factor-từ-số",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-22-dùng-cut-tạo-factor-từ-số",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 22 – Dùng cut() tạo factor từ số",
+    "text": "Bài tập 22 – Dùng cut() tạo factor từ số\nKiểm tra bmif. Điều gì thay đổi khi thêm ordered_result = TRUE?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nChạy lệnh cut() hai lần: một lần không có ordered_result, một lần có. So sánh output. Chú ý dòng hiển thị Levels: có dấu &lt; không?\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\ncut() chia vector số thành các nhóm. Thêm ordered_result = TRUE làm cho kết quả là ordered factor: lean &lt; normal &lt; overweight.\n\nbmi &lt;- c(17, 22, 23, 27, 21, 18, 26)\nbmif &lt;- cut(bmi, breaks = c(0, 20, 25, Inf), ordered_result = TRUE)\nlevels(bmif) &lt;- c(\"lean\", \"normal\", \"overweight\")\nbmif"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-23-chuyển-factor-thành-số",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-23-chuyển-factor-thành-số",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 23 – Chuyển factor thành số",
+    "text": "Bài tập 23 – Chuyển factor thành số\nĐiều gì xảy ra khi dùng as.numeric(bmif)?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nChạy as.numeric(bmif) và so sánh với levels(bmif). Kết quả là những số gì — giá trị thực hay số thứ tự?\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\nR trả về số thứ tự của mức (1, 2, 3…), không phải giá trị nhãn. Ví dụ: lean = 1, normal = 2, overweight = 3.\n\n\n\n\n\n\nWarningLỗi thường gặp!\n\n\n\nas.numeric() trên factor trả về số thứ tự mức (1, 2, 3…), không phải giá trị nhãn. Đây là lỗi rất phổ biến gây ra kết quả sai. Hãy xem Bài 24 để biết cách xử lý đúng."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-24-chuyển-factor-sang-số-thực",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-24-chuyển-factor-sang-số-thực",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 24 – Chuyển factor sang số thực",
+    "text": "Bài tập 24 – Chuyển factor sang số thực\nGán lean = 17.5, normal = 22.5, overweight = 27.5.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nKhông thể chuyển trực tiếp factor → số. Bạn cần đi qua hai bước: (1) đổi tên mức bằng levels(), (2) chuyển sang character trước, rồi mới sang số. Xem lại Bài 23 để hiểu tại sao.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nlevels(bmif) &lt;- c(17.5, 22.5, 27.5)\nbmi_char &lt;- as.character(bmif)  # bước 1: chuyển sang text\nbmi_num  &lt;- as.numeric(bmi_char) # bước 2: chuyển sang số\nprint(bmi_num)  # kết quả: 17.5 22.5 22.5 27.5 22.5 17.5 27.5\n\n\n\n\n\n\n\nCautionTại sao cần 2 bước?\n\n\n\nNếu dùng as.numeric() trực tiếp trên factor, R sẽ lấy số thứ tự mức (1, 2, 3) thay vì giá trị nhãn. Phải chuyển qua as.character() trước để “phá vỡ” cấu trúc factor, rồi mới chuyển sang số."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-25-đọc-trang-trợ-giúp-rep",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-25-đọc-trang-trợ-giúp-rep",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 25 – Đọc trang trợ giúp rep()",
+    "text": "Bài tập 25 – Đọc trang trợ giúp rep()\nrep() có bao nhiêu đối số? Đối số nào bắt buộc?\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nGõ ?rep trong console để mở trang trợ giúp. Tìm phần Usage và Arguments. Các đối số có giá trị mặc định (= something) là tùy chọn; không có giá trị mặc định là bắt buộc.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\n\n\nĐối số\nBắt buộc?\nÝ nghĩa\n\n\n\n\nx\n✅ Có\nVector cần lặp lại\n\n\ntimes\nKhông\nLặp toàn bộ vector bao nhiêu lần\n\n\neach\nKhông\nLặp từng phần tử bao nhiêu lần\n\n\nlength.out\nKhông\nGiới hạn tổng số phần tử của kết quả"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-26-27-các-cách-dùng-rep",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-26-27-các-cách-dùng-rep",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 26 & 27 – Các cách dùng rep()",
+    "text": "Bài tập 26 & 27 – Các cách dùng rep()\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nThử lần lượt từng lệnh trong console và quan sát output. Đặc biệt, so sánh kết quả lệnh 3 và 4: times và each viết đảo thứ tự có tạo ra sự khác biệt không?\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nrep(x = 1:5, times = 3)                         # lặp cả vector 3 lần\n\n [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5\n\nrep(x = 1:5, each = 3)                          # lặp từng phần tử 3 lần\n\n [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5\n\nrep(x = 1:5, times = 3, each = 2)               # lặp từng phần tử 2 lần, rồi lặp cả vector 3 lần\n\n [1] 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5\n\nrep(x = 1:5, each = 2, times = 3)               # giống lệnh trên (thứ tự đặt tên không quan trọng)\n\n [1] 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5 1 1 2 2 3 3 4 4 5 5\n\nrep(x = 1:5, times = 3, each = 2, length.out = 12)  # cắt bớt còn 12 phần tử\n\n [1] 1 1 2 2 3 3 4 4 5 5 1 1\n\n\n\n\n\n\n\n\nNoteBài 27 – Thứ tự đối số\n\n\n\nLệnh thứ ba và thứ tư cho kết quả giống hệt nhau. Trong R, khi đặt tên đối số (times =, each =), thứ tự viết không ảnh hưởng đến kết quả."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-28-29-làm-tròn-số-với-round",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-28-29-làm-tròn-số-với-round",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 28 & 29 – Làm tròn số với round()",
+    "text": "Bài tập 28 & 29 – Làm tròn số với round()\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nKhi không có digits, round() làm tròn đến số nguyên (digits = 0 mặc định). Thử round(2.54) và round(2.54, 1) xem kết quả khác nhau thế nào.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nround(2.54)              # làm tròn đến số nguyên → 3\n\n[1] 3\n\nround(2.54, digits = 1)  # làm tròn đến 1 chữ số thập phân → 2.5\n\n[1] 2.5"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-30-các-hàm-làm-tròn-khác",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-30-các-hàm-làm-tròn-khác",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 30 – Các hàm làm tròn khác",
+    "text": "Bài tập 30 – Các hàm làm tròn khác\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nThử trong console: ceiling(2.1), floor(2.9), trunc(-2.7). Đặc biệt với trunc(), kiểm tra với số âm xem nó có làm tròn xuống không hay luôn về phía 0.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\n\n\n\n\n\n\n\nHàm\nÝ nghĩa\nVí dụ: 2.7\n\n\n\n\nround()\nLàm tròn theo quy tắc toán học thông thường\n3\n\n\nceiling()\nLuôn làm tròn lên\n3\n\n\nfloor()\nLuôn làm tròn xuống\n2\n\n\ntrunc()\nBỏ phần thập phân (về phía 0)\n2\n\n\nsignif()\nLàm tròn theo số chữ số có nghĩa\n3 (1 c.s.)\n\n\n\n\nround(1:9 + 0.3, 1)    # giữ 1 chữ số thập phân: 1.3, 2.3, ..., 9.3\n\n[1] 1.3 2.3 3.3 4.3 5.3 6.3 7.3 8.3 9.3\n\nsignif(1:9 + 0.3, 1)   # giữ 1 chữ số có nghĩa: 1, 2, 3, ..., 9\n\n[1] 1 2 3 4 5 6 7 8 9"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-31-cắt-chuỗi-với-substr",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-31-cắt-chuỗi-với-substr",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 31 – Cắt chuỗi với substr()",
+    "text": "Bài tập 31 – Cắt chuỗi với substr()\nLấy 4 ký tự đầu của \"Hello, good morning\".\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nsubstr(chuỗi, bắt_đầu, kết_thúc) cắt lấy một đoạn chuỗi. Vị trí đếm từ 1. Ký tự đầu tiên \"H\" ở vị trí 1, ký tự thứ 4 \"l\" ở vị trí 4.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nsubstr(\"Hello, good morning\", 1, 4)  # kết quả: \"Hell\"\n\n[1] \"Hell\"\n\n\n\n\n\n\n\n\nTipCú pháp\n\n\n\nsubstr(chuỗi, vị_trí_bắt_đầu, vị_trí_kết_thúc) — vị trí đếm từ 1, không phải 0 như một số ngôn ngữ khác."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-32-tạo-vector-nhiều-cách",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-32-tạo-vector-nhiều-cách",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 32 – Tạo vector nhiều cách",
+    "text": "Bài tập 32 – Tạo vector nhiều cách\nTạo 1, 1, 2, 3, 3, 4, 5, 5.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nNhìn dãy: các số 1, 3, 5 xuất hiện 2 lần; 2, 4 xuất hiện 1 lần. Có nhiều cách: dùng rep(), dùng c() ghép dãy, dùng sort()…\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nc(rep(1,2), 2, rep(3,2), 4, rep(5,2))  # dùng rep()\n\n[1] 1 1 2 3 3 4 5 5\n\nsort(c(1:5, 1, 3, 5))                  # dùng sort()\n\n[1] 1 1 2 3 3 4 5 5\n\nc(1, 1:3, 3:5, 5)                      # ghép dãy\n\n[1] 1 1 2 3 3 4 5 5\n\nrep(c(1:5), each = 2)[-c(4, 8)]        # lặp rồi bỏ bớt\n\n[1] 1 1 2 3 3 4 5 5"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-33-chia-hết-cho-cả-2-và-3",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-33-chia-hết-cho-cả-2-và-3",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 33 – Chia hết cho cả 2 và 3",
+    "text": "Bài tập 33 – Chia hết cho cả 2 và 3\nTìm các số từ 1–20 chia hết cho cả 2 và 3.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nDùng %% (chia lấy dư) để kiểm tra tính chia hết: x %% n == 0 nghĩa là x chia hết cho n. Kết hợp hai điều kiện bằng &.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nx &lt;- c(1:20)\nx[x %% 2 == 0 & x %% 3 == 0]  # kết quả: 6, 12, 18\n\n[1]  6 12 18\n\n\n\n\n\n\n\n\nTipGhi nhớ: Toán tử %%\n\n\n\n%% là phép chia lấy dư (modulo). Ví dụ: 7 %% 3 = 1. Dùng x %% n == 0 để kiểm tra “x có chia hết cho n không”."
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-34-dùng-letters-và-paste0",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-34-dùng-letters-và-paste0",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 34 – Dùng LETTERS và paste0()",
+    "text": "Bài tập 34 – Dùng LETTERS và paste0()\nTạo c(\"AB\", \"BC\", \"CD\", \"DE\", \"EF\").\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nR có sẵn vector LETTERS gồm 26 chữ cái A–Z. Dùng LETTERS[1:5] và LETTERS[2:6] rồi ghép bằng paste0() (không khoảng trắng).\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\npaste0(LETTERS[1:5], LETTERS[2:6])\n\n[1] \"AB\" \"BC\" \"CD\" \"DE\" \"EF\"\n\n\n\n\n\n\n\n\nTip\n\n\n\nR có sẵn hai vector chữ cái: LETTERS (26 chữ in hoa) và letters (26 chữ thường). Rất tiện khi cần đặt tên cột, nhãn…"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-35-lọc-chuỗi-với-grep",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-35-lọc-chuỗi-với-grep",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 35 – Lọc chuỗi với grep()",
+    "text": "Bài tập 35 – Lọc chuỗi với grep()\nTừ vector ở Bài 34, chọn các phần tử có chứa \"C\".\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\ngrep(\"pattern\", x) trả về vị trí các phần tử khớp. Dùng kết quả đó làm chỉ số để lọc: x[grep(\"C\", x)].\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\ns &lt;- paste0(LETTERS[1:5], LETTERS[2:6])\ns[grep(\"C\", s)]  # kết quả: \"BC\", \"CD\"\n\n[1] \"BC\" \"CD\""
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-36-đổi-nhãn-factor",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-36-đổi-nhãn-factor",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 36 – Đổi nhãn factor",
+    "text": "Bài tập 36 – Đổi nhãn factor\nChuyển vector giới tính thành factor với nhãn 'M' cho nam và 'F' cho nữ.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nĐối số levels liệt kê giá trị gốc trong dữ liệu, labels là tên hiển thị tương ứng. Thứ tự phải khớp: phần tử đầu của levels ứng với phần tử đầu của labels.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\n# Giả sử s &lt;- c(\"male\", \"female\", \"male\", ...)\nfactor(s, levels = c(\"male\", \"female\"), labels = c(\"M\", \"F\"))"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-37-sắp-xếp-giảm-dần",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-37-sắp-xếp-giảm-dần",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 37 – Sắp xếp giảm dần",
+    "text": "Bài tập 37 – Sắp xếp giảm dần\nTạo 1:10 rồi sắp xếp theo thứ tự giảm dần.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nXem trang trợ giúp: ?sort. Tìm đối số kiểm soát chiều sắp xếp (tăng hay giảm).\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nx &lt;- c(1:10)\nsort(x, decreasing = TRUE)  # kết quả: 10, 9, 8, ..., 1\n\n [1] 10  9  8  7  6  5  4  3  2  1"
+  },
+  {
+    "objectID": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-38-lấy-giá-trị-duy-nhất",
+    "href": "Stats in R course/Day_1/Answersheet_Day_1_VN.html#bài-tập-38-lấy-giá-trị-duy-nhất",
+    "title": "Ngày 1: Nhập môn về R",
+    "section": "Bài tập 38 – Lấy giá trị duy nhất",
+    "text": "Bài tập 38 – Lấy giá trị duy nhất\nTạo 1, 1, 2, 2, 3, 3, 4, 4, sau đó lấy các giá trị không trùng lặp.\n\n\n\n\n\n\nNote🔍 Hướng dẫn\n\n\n\n\n\nDùng rep(1:4, each = 2) tạo vector. Sau đó dùng hàm unique() để loại bỏ giá trị trùng lặp.\n\n\n\n\n\n\n\n\n\nTip💡 Xem đáp án\n\n\n\n\n\n\nx &lt;- rep(1:4, each = 2)\nunique(x)  # kết quả: 1, 2, 3, 4\n\n[1] 1 2 3 4"
   }
 ]
